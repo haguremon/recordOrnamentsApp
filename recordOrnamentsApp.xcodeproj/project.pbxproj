@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF36A0BB26E5E0CC00ADD2DA /* OrnamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */; };
+		CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
+		CF36A0BE26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
+		CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */; };
 		CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */; };
 		CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */; };
 		CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */; };
@@ -35,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnamentViewController.swift; sourceTree = "<group>"; };
+		CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationsViewController.swift; sourceTree = "<group>"; };
 		CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordOrnamentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +83,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF49DEA326E344FC008707C2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */,
+				CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */,
+				CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */,
+				CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		CFB3BBA726E2096200EB2B1A = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +119,7 @@
 			children = (
 				CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */,
 				CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */,
-				CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */,
+				CF49DEA326E344FC008707C2 /* Controllers */,
 				CFB3BBB926E2096200EB2B1A /* Main.storyboard */,
 				CFB3BBBC26E2096600EB2B1A /* Assets.xcassets */,
 				CFB3BBBE26E2096600EB2B1A /* LaunchScreen.storyboard */,
@@ -259,8 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */,
+				CF36A0BB26E5E0CC00ADD2DA /* OrnamentViewController.swift in Sources */,
 				CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */,
+				CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */,
 				CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */,
+				CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB3BBCB26E2096600EB2B1A /* recordOrnamentsAppTests.swift in Sources */,
+				CF36A0BE26E5E51500ADD2DA /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
