@@ -9,21 +9,23 @@ import UIKit
 
 class NewRegistrationsViewController: UIViewController {
 
+   
+    
+    @IBOutlet weak var iconLabel: UILabel!
+    
+    @IBOutlet weak var iconImgeView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        iconImgeView.layer.cornerRadius = 58
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tapSelectIcon(_ sender: UITapGestureRecognizer){
+        
+        performSegue(withIdentifier: "PushSegue", sender: nil)
+    
     }
-    */
 
 }

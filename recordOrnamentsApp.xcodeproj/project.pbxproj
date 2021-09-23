@@ -11,6 +11,10 @@
 		CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
 		CF36A0BE26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
 		CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */; };
+		CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE126E894C500150D9F /* DescriptionViewController.swift */; };
+		CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE326E89F3300150D9F /* IconViewController.swift */; };
+		CF96065226FCC31C00E4D2BF /* extensionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */; };
+		CF96065426FCC93D00E4D2BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065326FCC93D00E4D2BF /* CustomButton.swift */; };
 		CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */; };
 		CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */; };
 		CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */; };
@@ -42,6 +46,10 @@
 		CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnamentViewController.swift; sourceTree = "<group>"; };
 		CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationsViewController.swift; sourceTree = "<group>"; };
+		CF91FBE126E894C500150D9F /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		CF91FBE326E89F3300150D9F /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
+		CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIButton.swift; sourceTree = "<group>"; };
+		CF96065326FCC93D00E4D2BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordOrnamentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +98,10 @@
 				CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */,
 				CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */,
 				CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */,
+				CF91FBE126E894C500150D9F /* DescriptionViewController.swift */,
+				CF91FBE326E89F3300150D9F /* IconViewController.swift */,
+				CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */,
+				CF96065326FCC93D00E4D2BF /* CustomButton.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -277,10 +289,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */,
+				CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */,
 				CF36A0BB26E5E0CC00ADD2DA /* OrnamentViewController.swift in Sources */,
+				CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */,
+				CF96065426FCC93D00E4D2BF /* CustomButton.swift in Sources */,
 				CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */,
 				CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */,
 				CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */,
+				CF96065226FCC31C00E4D2BF /* extensionUIButton.swift in Sources */,
 				CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
