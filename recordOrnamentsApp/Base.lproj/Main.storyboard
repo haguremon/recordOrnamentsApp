@@ -393,45 +393,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" translatesAutoresizingMaskIntoConstraints="NO" id="cPE-nC-StW">
-                                <rect key="frame" x="11" y="170" width="351" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="cPE-nC-StW">
+                                <rect key="frame" x="11" y="170" width="351" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gGT-Gx-6T0">
-                                <rect key="frame" x="0.0" y="239" width="414" height="657"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr1-8S-Zfy">
+                                <rect key="frame" x="362" y="170" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="csy-qL-RUv"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="magnifyingglass" catalog="system"/>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rwb-OV-zSF">
+                                <rect key="frame" x="0.0" y="223" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L82-OQ-baN">
-                                    <size key="itemSize" width="182" height="157"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="itN-La-7it">
+                                    <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="ttn-ly-EcJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="182" height="157"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="5Jh-S3-5G5">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5i1-e1-FcN">
-                                            <rect key="frame" x="0.0" y="0.0" width="182" height="157"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fGK-cv-4pX">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="182" height="157"/>
-                                        <connections>
-                                            <segue destination="xUJ-8o-BTz" kind="show" id="XEq-cF-6Jx"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr1-8S-Zfy">
-                                <rect key="frame" x="362" y="170" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="magnifyingglass" catalog="system"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y4O-k8-Z0a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y4O-k8-Z0a" firstAttribute="trailing" secondItem="cr1-8S-Zfy" secondAttribute="trailing" constant="7" id="0PW-sP-elC"/>
+                            <constraint firstItem="Rwb-OV-zSF" firstAttribute="leading" secondItem="Y4O-k8-Z0a" secondAttribute="leading" id="GR3-nY-9kl"/>
+                            <constraint firstItem="Rwb-OV-zSF" firstAttribute="top" secondItem="cPE-nC-StW" secondAttribute="bottom" constant="2" id="PiN-WS-ptd"/>
+                            <constraint firstItem="cPE-nC-StW" firstAttribute="top" secondItem="Y4O-k8-Z0a" secondAttribute="top" constant="30" id="Yxm-mB-pzC"/>
+                            <constraint firstItem="Rwb-OV-zSF" firstAttribute="top" secondItem="cr1-8S-Zfy" secondAttribute="bottom" constant="8" id="aRY-um-gmy"/>
+                            <constraint firstItem="cPE-nC-StW" firstAttribute="top" secondItem="cr1-8S-Zfy" secondAttribute="top" id="bcd-dQ-PYc"/>
+                            <constraint firstItem="cPE-nC-StW" firstAttribute="leading" secondItem="Y4O-k8-Z0a" secondAttribute="leading" constant="11" id="co3-fm-vVl"/>
+                            <constraint firstItem="cr1-8S-Zfy" firstAttribute="leading" secondItem="cPE-nC-StW" secondAttribute="trailing" id="eji-cK-ouT"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Rwb-OV-zSF" secondAttribute="bottom" constant="-34" id="tod-rg-ZmN"/>
+                            <constraint firstItem="Rwb-OV-zSF" firstAttribute="centerX" secondItem="1Gq-lC-HUE" secondAttribute="centerX" id="yFi-su-VMx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="置物" id="vtB-QC-Bsm">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="b8A-fY-Lam">
@@ -443,12 +450,12 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bAV-0d-z9Z"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="gGT-Gx-6T0" id="W3A-8F-UUL"/>
+                        <outlet property="collectionView" destination="Rwb-OV-zSF" id="IGE-zn-8Tf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5T6-nv-Uxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="727"/>
+            <point key="canvasLocation" x="850.72463768115949" y="726.5625"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="5eI-vT-Po9">

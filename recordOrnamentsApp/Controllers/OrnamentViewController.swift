@@ -13,12 +13,19 @@ class OrnamentViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var menu: SideMenuNavigationController? = nil
+    let collectionViewLayout = CollectionViewLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupSideMenu()
+        setupCollectionView()
+    }
+    private func setupCollectionView() {
+        collectionView.collectionViewLayout = collectionViewLayout.OrnamentCollectionViewLayout()
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        setupSideMenu()
         
     }
     
@@ -62,17 +69,26 @@ class OrnamentViewController: UIViewController {
 }
 
 extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        
+        cell.backgroundColor = .darkGray
         
         return cell
         
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = .green
     }
     
 

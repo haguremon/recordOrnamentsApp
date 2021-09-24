@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: CustomButton) {
         var logintest: Bool
-        logintest = true
+        logintest = false
         if logintest == true {
             sender.pulsate()
             
