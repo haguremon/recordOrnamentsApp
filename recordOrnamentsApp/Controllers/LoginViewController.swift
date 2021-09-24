@@ -26,20 +26,22 @@ class LoginViewController: UIViewController {
     }
     
     
-    @IBAction func loginButton(_ sender: CustomButton) {
-        var logintest: Bool
-        logintest = false
+    func testanimation(logintest: Bool, button: UIButton){
         if logintest == true {
-            sender.pulsate()
+            button.pulsate()
             
         } else {
-            sender.errorAnimation(duration: 0.01)
+            button.errorAnimation(duration: 0.01)
         }
         
     }
+    @IBAction func loginButton(_ sender: CustomButton) {
+        testanimation(logintest: true, button: sender)
+        
+    }
+
     @IBAction func presentToRegistrButton(_ sender: CustomButton) {
-        
-        
+        testanimation(logintest: false, button: sender)
     }
     
     

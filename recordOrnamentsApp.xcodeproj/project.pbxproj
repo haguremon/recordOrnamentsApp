@@ -107,8 +107,6 @@
 				CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */,
 				CF91FBE126E894C500150D9F /* DescriptionViewController.swift */,
 				CF91FBE326E89F3300150D9F /* IconViewController.swift */,
-				CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */,
-				CF96065326FCC93D00E4D2BF /* CustomButton.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -116,9 +114,19 @@
 		CF4CE57926FDA8D300BD78CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF4CE57C26FE063300BD78CA /* Button */,
 				CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CF4CE57C26FE063300BD78CA /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */,
+				CF96065326FCC93D00E4D2BF /* CustomButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		CFB3BBA726E2096200EB2B1A = {

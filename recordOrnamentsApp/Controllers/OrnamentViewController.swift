@@ -12,6 +12,8 @@ class OrnamentViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var darkGraycolor: UIColor? = .darkGray
+    
     var menu: SideMenuNavigationController? = nil
     let collectionViewLayout = CollectionViewLayout()
     
@@ -24,6 +26,7 @@ class OrnamentViewController: UIViewController {
     private func setupCollectionView() {
         collectionView.collectionViewLayout = collectionViewLayout.OrnamentCollectionViewLayout()
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell2")
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -53,11 +56,11 @@ class OrnamentViewController: UIViewController {
     
     
     @IBAction func createSideMenuButton(_ sender: Any) {
-    
-    present(menu!, animated: true, completion: nil)
-    
-    
-    
+        
+        present(menu!, animated: true, completion: nil)
+        
+        
+        
     }
     
     
@@ -70,28 +73,45 @@ class OrnamentViewController: UIViewController {
 
 extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        switch section {
+        case 0:
+            return 10
+        default:
+            return 1
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .darkGray
+        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
         
+        switch indexPath.section {
+        case 0:
+            cell.backgroundColor = darkGraycolor
+            return cell
+        
+        case 1:
+            cell2.backgroundColor = .orange
+            return cell2
+        default:
+            break
+        }
+        cell.backgroundColor = darkGraycolor
         return cell
-        
-        
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = .green
-    }
+        darkGraycolor = .green
+        cell?.backgroundColor = darkGraycolor
+ 
     
-
+    }
     
 }
 
