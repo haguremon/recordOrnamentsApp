@@ -7,17 +7,9 @@
 
 import UIKit
 
-enum testError : Error {
-    case testerror
-    case testerror1
-}
 
-class LoginViewController: UIViewController, CustomButtonDelegate {
-    var touchesBegan: Error?
+class LoginViewController: UIViewController {
     
-    var touchesEnded: Error?
-    
-        
     
     
     let customButton = CustomButton()
@@ -34,17 +26,18 @@ class LoginViewController: UIViewController, CustomButtonDelegate {
     }
     
     
-    @IBAction func loginButton(_ sender1: CustomButton) {
+    @IBAction func loginButton(_ sender: CustomButton) {
+        var logintest: Bool
+        logintest = true
+        if logintest == true {
+            sender.pulsate()
+            
+        } else {
+            sender.errorAnimation(duration: 0.01)
+        }
         
-        sender1.delegate = self
-        self.touchesBegan = testError.testerror
-        self.touchesEnded = testError.testerror1
     }
-    @IBAction func presentToRegistrButton(_ sender2: CustomButton) {
-        sender2.delegate = self
-        
-        self.touchesBegan = nil
-        self.touchesEnded = nil
+    @IBAction func presentToRegistrButton(_ sender: CustomButton) {
         
         
     }

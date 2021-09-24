@@ -8,15 +8,7 @@
 import Foundation
 import UIKit
 
-protocol CustomButtonDelegate: AnyObject {
-   
-    
-    var touchesBegan: Error? {  get  }
-    var touchesEnded: Error? {  get  }
-}
-
 class CustomButton: UIButton {
-    weak var delegate: CustomButtonDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,53 +20,6 @@ class CustomButton: UIButton {
         commonInit()
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-        if delegate?.touchesBegan != nil {
-            print("truedesu")
-            errorAnimation(duration: 0.03)
-            return
-        } else if  delegate?.touchesBegan == nil {
-           
-            print("nildesu")
-            touchStartAnimation(duration: 0.009, delay: 0.0)
-            return
-        } else {
-            print("error")
-            touchStartAnimation(duration: 0.1, delay: 0.0)
-            
-        }
-        
-        
-  
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        if delegate?.touchesEnded != nil {
-            print("tets111")
-            errorAnimation(duration: 0.03)
-
-            return
-        } else if delegate?.touchesEnded == nil {
-            print("nildesu")
-            
-            touchEndAnimation(duration: 0.009, delay: 0)
-            return
-        } else {
-            touchEndAnimation(duration: 0.1, delay: 0.0)
-        }
-        
-
-    }
-
-//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesCancelled(touches, with: event)
-//
-//        touchEndAnimation(duration: 0.1, delay: 0.0)
-//
-//    }
 }
 
 
