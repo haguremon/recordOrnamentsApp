@@ -118,14 +118,11 @@
                                     <action selector="loginGuestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uca-BI-he1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04b-dF-Ym6">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04b-dF-Ym6" customClass="CustomButton" customModule="recordOrnamentsApp" customModuleProvider="target">
                                 <rect key="frame" x="90" y="503" width="235" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.64560009979999999" green="0.86087566609999999" blue="0.65317411430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="新規登録">
-                                    <color key="baseBackgroundColor" red="0.64560009979999999" green="0.86087566609999999" blue="0.65317411430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="presentToRegistrButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nsc-1O-0ly"/>
                                 </connections>

@@ -8,8 +8,15 @@
 import Foundation
 import UIKit
 
+protocol CustomButtonDelegate: AnyObject {
+   
+    
+    var touchesBegan: Error? {  get  }
+    var touchesEnded: Error? {  get  }
+}
 
 class CustomButton: UIButton {
+    weak var delegate: CustomButtonDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,20 +30,51 @@ class CustomButton: UIButton {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        touchStartAnimation()
+        
+        if delegate?.touchesBegan != nil {
+            print("truedesu")
+            errorAnimation(duration: 0.03)
+            return
+        } else if  delegate?.touchesBegan == nil {
+           
+            print("nildesu")
+            touchStartAnimation(duration: 0.009, delay: 0.0)
+            return
+        } else {
+            print("error")
+            touchStartAnimation(duration: 0.1, delay: 0.0)
+            
+        }
+        
+        
+  
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        touchEndAnimation()
-       
+        if delegate?.touchesEnded != nil {
+            print("tets111")
+            errorAnimation(duration: 0.03)
+
+            return
+        } else if delegate?.touchesEnded == nil {
+            print("nildesu")
+            
+            touchEndAnimation(duration: 0.009, delay: 0)
+            return
+        } else {
+            touchEndAnimation(duration: 0.1, delay: 0.0)
+        }
+        
+
     }
 
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesCancelled(touches, with: event)
-        
-        self.errorAnimation()
-    }
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesCancelled(touches, with: event)
+//
+//        touchEndAnimation(duration: 0.1, delay: 0.0)
+//
+//    }
 }
 
 
@@ -52,19 +90,21 @@ extension CustomButton {
         self.layer.shadowOpacity = 1.0
     }
 
-    //ボタンが押された時のアニメーション
-    internal func touchStartAnimation() {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {() -> Void in
+    //ボタンが押された時のアニメーション//0.1 // 0.0
+    internal func touchStartAnimation(duration: TimeInterval,delay: TimeInterval) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {() -> Void in
             self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95);
             self.alpha = 0.9
         },completion: nil)
     }
 
     //ボタンから手が離れた時のアニメーション
-    internal func touchEndAnimation() {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {() -> Void in
+    func touchEndAnimation(duration: TimeInterval,delay: TimeInterval) {
+        
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {() -> Void in
             self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0);
             self.alpha = 1
         },completion: nil)
+
     }
 }

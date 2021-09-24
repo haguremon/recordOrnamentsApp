@@ -38,11 +38,11 @@ extension UIButton{
         layer.add(flash, forKey: nil)
     }
     
-    func errorAnimation () {
-        // 揺れるボタン
+    func errorAnimation (duration: CFTimeInterval) {
+    // 揺れるボタン
         let shake = CASpringAnimation(keyPath: "position")
-        shake.duration = 0.03
-        shake.repeatCount = 1.5
+        shake.duration = duration
+        shake.repeatCount = 2
         shake.autoreverses = true
         shake.damping = 2.0
         shake.stiffness = 120
@@ -51,6 +51,10 @@ extension UIButton{
         
         shake.fromValue = fromPoint
         shake.toValue = toPoint
+//        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {() -> Void in
+//            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0);
+//            self.alpha = 1
+//        },completion: nil)
         
         layer.add(shake, forKey: nil)
     }
