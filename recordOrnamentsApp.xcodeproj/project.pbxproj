@@ -114,7 +114,6 @@
 		CF4CE57926FDA8D300BD78CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF4CE57C26FE063300BD78CA /* Button */,
 				CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */,
 			);
 			path = Views;
@@ -155,6 +154,7 @@
 				CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */,
 				CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */,
 				CF4CE57926FDA8D300BD78CA /* Views */,
+				CF4CE57C26FE063300BD78CA /* Button */,
 				CF49DEA326E344FC008707C2 /* Controllers */,
 				CFB3BBB926E2096200EB2B1A /* Main.storyboard */,
 				CFB3BBBC26E2096600EB2B1A /* Assets.xcassets */,

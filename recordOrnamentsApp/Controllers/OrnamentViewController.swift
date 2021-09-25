@@ -12,7 +12,7 @@ class OrnamentViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var darkGraycolor: UIColor? = .darkGray
+    var color: UIColor? = .darkGray
     
     var menu: SideMenuNavigationController? = nil
     let collectionViewLayout = CollectionViewLayout()
@@ -71,6 +71,7 @@ class OrnamentViewController: UIViewController {
     
 }
 
+
 extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         2
@@ -92,27 +93,26 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
         
         switch indexPath.section {
         case 0:
-            cell.backgroundColor = darkGraycolor
+            cell.backgroundColor = color
             return cell
-        
+            
         case 1:
             cell2.backgroundColor = .orange
             return cell2
         default:
             break
         }
-        cell.backgroundColor = darkGraycolor
+        cell.backgroundColor = color
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        darkGraycolor = .green
-        cell?.backgroundColor = darkGraycolor
- 
-    
+        color = .green
+        cell?.backgroundColor = color
+        performSegue(withIdentifier: "DetailsView", sender: nil)
+        
     }
-    
 }
 
 
