@@ -27,7 +27,7 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        imageView.layer.cornerRadius = 20
+        //imageView.layer.cornerRadius = 25
     
     }
     

@@ -10,13 +10,24 @@ import SideMenu
 
 class OrnamentViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private var collectionView: UICollectionView!
     
-    var color: UIColor? = .darkGray
+    private let coverView: UIView = {
+        let mainBoundSize: CGSize = UIScreen.main.bounds.size
+        let mainFrame = CGRect(x: 0, y: 0, width: mainBoundSize.width, height: mainBoundSize.height)
+        
+        let view = UIView()
+        view.frame = mainFrame
+        view.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        return view
+    }()
+    
+    
     
     var menu: SideMenuNavigationController? = nil
     let collectionViewLayout = CollectionViewLayout()
-    
+    var color: UIColor? = .darkGray
+    let imagename = ["square.and.arrow.up","paperplane","paperplane","paperplane","paperplane","arrow.down.to.line","gear","magnifyingglass","clock","square.and.arrow.up","paperplane","arrow.down.to.line","gear","magnifyingglass","clock"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,9 +35,10 @@ class OrnamentViewController: UIViewController {
         setupCollectionView()
     }
     private func setupCollectionView() {
-        collectionView.collectionViewLayout = collectionViewLayout.OrnamentCollectionViewLayout()
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell2")
+        collectionView.collectionViewLayout = collectionViewLayout.ornamentCollectionViewLayout()
+        
+        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        //collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -71,48 +83,75 @@ class OrnamentViewController: UIViewController {
     
 }
 
-
+//MRAK: -CollectionView
 extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 10
-        default:
-            return 1
-        }
+        return imagename.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
-        switch indexPath.section {
+        
+        switch indexPath.row {
         case 0:
-            cell.backgroundColor = color
+            cell.layer.cornerRadius = 75
+            cell.backgroundColor = .darkGray
+            cell.layer.shadowRadius = 1
+            cell.layer.shadowOpacity = 1
+            cell.bounds.size.height = 150
+            cell.bounds.size.width = 150
+            cell.setup(image: UIImage(systemName: "plus"))
             return cell
-            
-        case 1:
-            cell2.backgroundColor = .orange
-            return cell2
         default:
-            break
+            cell.layer.cornerRadius = 20
+            cell.backgroundColor = .darkGray
+            cell.setup(image: UIImage(systemName: imagename[indexPath.row - 1]))
+            return cell
         }
-        cell.backgroundColor = color
-        return cell
+        //cell.backgroundColor = .darkGray
+        //return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        color = .green
-        cell?.backgroundColor = color
+        let cell = collectionView.cellForItem(at: indexPath)  as! CollectionViewCell
+        
+        switch indexPath.row {
+        case 0:
+            cell.backgroundColor = .darkGray
+            //cell.setup(image: UIImage(systemName: "plus"))
+        case 1... :
+            //color = .green
+            cell.backgroundColor = .green
+            //cell.setup(image: nil)
+        default:
+            break
+        }
+        
         performSegue(withIdentifier: "DetailsView", sender: nil)
         
     }
 }
+//MRAK: -SideMeun
+
+extension OrnamentViewController: SideMenuNavigationControllerDelegate {
+    
+    func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
+        navigationController?.view.addSubview(coverView)
+    }
+    
+    func sideMenuWillDisappear(menu: SideMenuNavigationController, animated: Bool) {
+        coverView.removeFromSuperview()
+    }
+    
+    
+    
+}
+
 
 

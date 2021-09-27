@@ -12,6 +12,8 @@
 		CF36A0BE26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
 		CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */; };
 		CF4CE57B26FDA8E500BD78CA /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */; };
+		CF4CE5802700446400BD78CA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */; };
+		CF4CE5812700446400BD78CA /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */; };
 		CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE126E894C500150D9F /* DescriptionViewController.swift */; };
 		CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE326E89F3300150D9F /* IconViewController.swift */; };
 		CF96065226FCC31C00E4D2BF /* extensionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */; };
@@ -50,6 +52,8 @@
 		CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationsViewController.swift; sourceTree = "<group>"; };
 		CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CF91FBE126E894C500150D9F /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		CF91FBE326E89F3300150D9F /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
 		CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIButton.swift; sourceTree = "<group>"; };
@@ -114,7 +118,8 @@
 		CF4CE57926FDA8D300BD78CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */,
+				CF4CE57C26FE063300BD78CA /* Button */,
+				CF4CE57D2700440E00BD78CA /* CollectionView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +131,16 @@
 				CF96065326FCC93D00E4D2BF /* CustomButton.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		CF4CE57D2700440E00BD78CA /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */,
+				CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */,
+				CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		CFB3BBA726E2096200EB2B1A = {
@@ -154,7 +169,6 @@
 				CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */,
 				CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */,
 				CF4CE57926FDA8D300BD78CA /* Views */,
-				CF4CE57C26FE063300BD78CA /* Button */,
 				CF49DEA326E344FC008707C2 /* Controllers */,
 				CFB3BBB926E2096200EB2B1A /* Main.storyboard */,
 				CFB3BBBC26E2096600EB2B1A /* Assets.xcassets */,
@@ -293,6 +307,7 @@
 			files = (
 				CFB3BBC026E2096600EB2B1A /* LaunchScreen.storyboard in Resources */,
 				CFB3BBBD26E2096600EB2B1A /* Assets.xcassets in Resources */,
+				CF4CE5812700446400BD78CA /* CollectionViewCell.xib in Resources */,
 				CFB3BBBB26E2096200EB2B1A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +341,7 @@
 				CF96065426FCC93D00E4D2BF /* CustomButton.swift in Sources */,
 				CF4CE57B26FDA8E500BD78CA /* CollectionViewLayout.swift in Sources */,
 				CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */,
+				CF4CE5802700446400BD78CA /* CollectionViewCell.swift in Sources */,
 				CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */,
 				CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */,
 				CF96065226FCC31C00E4D2BF /* extensionUIButton.swift in Sources */,
