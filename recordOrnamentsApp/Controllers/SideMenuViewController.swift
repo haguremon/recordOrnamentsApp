@@ -6,7 +6,11 @@
 //
 
 import UIKit
-    
+protocol SideMenuViewControllerDelegate: AnyObject {
+    func didSelectMeunItem(name: SideMenuItem)
+}
+
+
 enum SideMenuItem: String,CaseIterable{
     case useGuide = "使い方ガイド"
     case signOut = "最初の画面に戻る"
@@ -20,6 +24,7 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    weak var delegate: SideMenuViewControllerDelegate?
     
     let sideMenuItems: [SideMenuItem] = SideMenuItem.allCases
     
@@ -58,5 +63,17 @@ extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         70
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //デリゲートを使ってやり取りする
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectItem = sideMenuItems[indexPath.row]
+        print(selectItem)
+        //ここでの通知をViewControllernに伝えてその内容をViewControllerでやる
+        delegate?.didSelectMeunItem(name: selectItem)
+        
+        performSegue(withIdentifier: "\(selectItem)", sender: nil)
+        print("tap")
+    }
+
 }

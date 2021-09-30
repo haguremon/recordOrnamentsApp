@@ -56,19 +56,19 @@ class  CollectionViewLayout {
             widthDimension: .fractionalWidth(1), //グループの100%
             heightDimension: .absolute(height)))//絶対値150の高さ
         // 4推定値1000（高さ）と幅が100%のグループが作成されるため　contentInsetsを使って間を開けてアイテムをちゃんと表示させるようにする
-        item.contentInsets = .init(top: 2, leading: 1, bottom: 7, trailing: 1)
+        item.contentInsets = .init(top: 0, leading: 1, bottom: 1, trailing: 1)
         
         //2 グループ作成
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
             widthDimension: .fractionalWidth(1),//幅100%
             heightDimension: .estimated(1000)), //推定値1000の高さのグループ
                                                        subitems: [item])
-        group.contentInsets = .init(top: 3, leading: 5, bottom: 7, trailing: 5)
-        group.accessibilityScroll(UIAccessibilityScrollDirection(rawValue: 1)!)
+        group.contentInsets = .init(top: 0, leading: 5, bottom: 1, trailing: 5)
         //1 sectionを作成
         let section = NSCollectionLayoutSection(group: group)
         //5 縦に並んでるをスクロールさせたい場合horizontal（平行）
         section.orthogonalScrollingBehavior = .paging
+
         return section
         
     }

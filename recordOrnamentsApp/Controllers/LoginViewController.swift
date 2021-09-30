@@ -3,10 +3,10 @@
 //  recordOrnamentsApp
 //
 //  Created by IwasakIYuta on 2021/09/03.
-//
+// 
 
 import UIKit
-
+import Lottie
 
 class LoginViewController: UIViewController {
     
@@ -14,14 +14,33 @@ class LoginViewController: UIViewController {
     
     let customButton = CustomButton()
     
+    @IBOutlet weak var animationView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    animation()
     }
+
     
     @IBAction func descriptionScreenButton(_ sender: UIButton) {
         
         performSegue(withIdentifier: "ModalSegue", sender: nil)
+        
+    }
+    private func animation() {
+        
+
+        let background = AnimationView(name: "background2")
+        background.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height + 10)
+        background.center = self.view.center
+        background.loopMode = .loop
+        background.contentMode = .scaleAspectFit
+        background.animationSpeed = 0.8
+
+        animationView.addSubview(background)
+
+        background.play()
+        
         
     }
     
@@ -50,6 +69,9 @@ class LoginViewController: UIViewController {
         presentToOrnamentViewController()
         
         
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     

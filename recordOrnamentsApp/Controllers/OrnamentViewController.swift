@@ -12,6 +12,7 @@ class OrnamentViewController: UIViewController {
     
     @IBOutlet private var collectionView: UICollectionView!
     
+    
     private let coverView: UIView = {
         let mainBoundSize: CGSize = UIScreen.main.bounds.size
         let mainFrame = CGRect(x: 0, y: 0, width: mainBoundSize.width, height: mainBoundSize.height)
@@ -22,49 +23,22 @@ class OrnamentViewController: UIViewController {
         return view
     }()
     
-    
-    
     var menu: SideMenuNavigationController? = nil
     let collectionViewLayout = CollectionViewLayout()
     var color: UIColor? = .darkGray
     let imagename = ["square.and.arrow.up","paperplane","paperplane","paperplane","paperplane","arrow.down.to.line","gear","magnifyingglass","clock","square.and.arrow.up","paperplane","arrow.down.to.line","gear","magnifyingglass","clock"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupSideMenu()
         setupCollectionView()
-    }
-    private func setupCollectionView() {
-        collectionView.collectionViewLayout = collectionViewLayout.ornamentCollectionViewLayout()
-        
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-        //collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.delegate = self
-        collectionView.dataSource = self
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(showkeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(hidekeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
-    private func setupSideMenu() {
-        weak var sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
-        menu = SideMenuNavigationController(rootViewController: sideMenuViewController!)
-        menu?.leftSide = true
-        menu?.settings = makeSettings()
-        SideMenuManager.default.leftMenuNavigationController = menu
-        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
-        
-    }
-    
-    
-    private func makeSettings() -> SideMenuSettings {
-        var settings = SideMenuSettings()
-        //動作を指定
-        settings.presentationStyle = .menuSlideIn
-        //メニューの陰影度
-        settings.presentationStyle.onTopShadowOpacity = 1.0
-        //ステータスバーの透明度
-        settings.statusBarEndAlpha = 0
-        return settings
-    }
     
     
     @IBAction func createSideMenuButton(_ sender: Any) {
@@ -83,8 +57,22 @@ class OrnamentViewController: UIViewController {
     
 }
 
+
+
+
+
 //MRAK: -CollectionView
 extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    private func setupCollectionView() {
+        collectionView.collectionViewLayout = collectionViewLayout.ornamentCollectionViewLayout()
+        
+        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+    }
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
@@ -114,8 +102,7 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
             cell.setup(image: UIImage(systemName: imagename[indexPath.row - 1]))
             return cell
         }
-        //cell.backgroundColor = .darkGray
-        //return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -124,11 +111,11 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
         switch indexPath.row {
         case 0:
             cell.backgroundColor = .darkGray
-            //cell.setup(image: UIImage(systemName: "plus"))
+            
         case 1... :
-            //color = .green
+            
             cell.backgroundColor = .green
-            //cell.setup(image: nil)
+            
         default:
             break
         }
@@ -137,9 +124,58 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
         
     }
 }
+
+
 //MRAK: -SideMeun
 
-extension OrnamentViewController: SideMenuNavigationControllerDelegate {
+extension OrnamentViewController: SideMenuNavigationControllerDelegate, SideMenuViewControllerDelegate {
+    
+    private func createViewController() -> SideMenuViewController? {
+        weak var sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
+        return sideMenuViewController
+    }
+    private func setupSideMenu() {
+        createViewController()!.delegate = self
+        
+        menu = SideMenuNavigationController(rootViewController: createViewController()!)
+        menu?.leftSide = true
+        menu?.settings = makeSettings()
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+        
+    }
+    
+    
+    private func makeSettings() -> SideMenuSettings {
+        var settings = SideMenuSettings()
+        //動作を指定
+        settings.presentationStyle = .menuSlideIn
+        //メニューの陰影度
+        settings.presentationStyle.onTopShadowOpacity = 1.0
+        //ステータスバーの透明度
+        settings.statusBarEndAlpha = 0
+        return settings
+    }
+    
+    
+    
+    
+    
+    func didSelectMeunItem(name: SideMenuItem) {
+        menu?.dismiss(animated: true, completion:nil)
+        //閉じた時に移動する
+        
+        switch name {
+            
+        case .useGuide:
+            present(createViewController()!, animated: true, completion: nil)
+        case .signOut:
+            view.backgroundColor = .blue
+        case .contact:
+            view.backgroundColor = .green
+        }
+    }
+    
     
     func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
         navigationController?.view.addSubview(coverView)
@@ -155,3 +191,32 @@ extension OrnamentViewController: SideMenuNavigationControllerDelegate {
 
 
 
+////MRAK: -keyboard
+//extension OrnamentViewController {
+//    @objc func showkeyboard(notification: Notification){
+//        //キーボードのフレームを求める
+//        let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+//        //https://qiita.com/st43/items/3802624d15a8dded8169 //フレームについて
+//        guard let kayboardMinY = keyboardFrame?.minY else { return } //キーボードの高さ
+//        let registerButtonMaxY = view.frame.maxY //registerButtonの底辺の位置
+//        let distance = registerButtonMaxY - kayboardMinY + 30
+//        let transform = CGAffineTransform(translationX: 0, y: -distance)
+//        //https://qiita.com/hachinobu/items/57d4c305c907805b4a53 //Animation
+//        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+//            self.view.transform = transform
+//        })
+//        //print("kayboardMinY: \(String(describing: kayboardMinY)), registerButtonMaxY: \(registerButtonMaxY)")
+//    }
+//    @objc func hidekeyboard(){
+//        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+//            self.view.transform = .identity
+//        })
+//    }
+//
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
+//
+//}
+//
+//
