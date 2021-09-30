@@ -25,8 +25,12 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="LdY-ID-g8N" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5dT-jC-t82"/>
                 <constraint firstItem="LdY-ID-g8N" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6mU-7O-FhR"/>
+                <constraint firstAttribute="trailing" secondItem="LdY-ID-g8N" secondAttribute="trailing" id="YB7-JZ-f4S"/>
                 <constraint firstAttribute="bottom" secondItem="LdY-ID-g8N" secondAttribute="bottom" id="cz8-oI-xiD"/>
+                <constraint firstItem="LdY-ID-g8N" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sHs-lk-1LF"/>
+                <constraint firstAttribute="bottom" secondItem="LdY-ID-g8N" secondAttribute="bottom" id="tzk-Dd-on9"/>
                 <constraint firstAttribute="trailing" secondItem="LdY-ID-g8N" secondAttribute="trailing" id="ycK-90-jaw"/>
                 <constraint firstItem="LdY-ID-g8N" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yq1-nl-d9G"/>
             </constraints>
