@@ -54,6 +54,7 @@ class DescriptionViewController: UIViewController {
         let imageView = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
         let image = UIImage(systemName:  image.imageName)
         imageView.image = image
+        
         return imageView
     }
     func setUpImageView() {
@@ -61,6 +62,7 @@ class DescriptionViewController: UIViewController {
             let photoItem = self.photoList[i]
             let imageView = createImageView(x: 0, y: 0, width: self.belowView.frame.size.width, height: self.scrollView.frame.size.height, image: photoItem)
             imageView.frame = CGRect(origin: CGPoint(x: self.belowView.frame.size.width * CGFloat(i), y: 0), size: CGSize(width: self.belowView.frame.size.width, height: self.scrollView.frame.size.height))
+            imageView.clipsToBounds = true
             self.scrollView.addSubview(imageView)
         }
         
