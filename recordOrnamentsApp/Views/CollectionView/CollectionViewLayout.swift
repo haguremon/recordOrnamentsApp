@@ -37,6 +37,16 @@ class  CollectionViewLayout {
         
         let section = NSCollectionLayoutSection(group: group)
         
+        section.boundarySupplementaryItems =
+            [
+                .init(layoutSize: .init(
+                        widthDimension: .fractionalWidth(1),
+                        heightDimension: .absolute(20)),
+                      elementKind: "header" ,
+                      alignment: .top)
+                
+            ]
+        
         return section
         
     }
@@ -68,7 +78,9 @@ class  CollectionViewLayout {
         let section = NSCollectionLayoutSection(group: group)
         //5 縦に並んでるをスクロールさせたい場合horizontal（平行）
         section.orthogonalScrollingBehavior = .paging
-
+       
+        
+        //header
         return section
         
     }

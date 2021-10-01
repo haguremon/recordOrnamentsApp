@@ -11,8 +11,20 @@ import SideMenu
 class OrnamentViewController: UIViewController {
     
     @IBOutlet private var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    private func searchBarconfigur() {
+//        searchBar.layer.cornerRadius = 100
+//        searchBar.searchTextField.layer.cornerRadius = 100
+//        searchBar.searchTextField.frame.size.height = 60
+//        searchBar.translatesAutoresizingMaskIntoConstraints = false
+//        collectionView.keyboardDismissMode = .onDrag
+//        if #available(iOS 14, *) {
+//
+//                } else {
+//                    searchBar.searchTextField.font = UIFont.systemFont(ofSize: 16)
+//                }
     
-    
+    }
     private let coverView: UIView = {
         let mainBoundSize: CGSize = UIScreen.main.bounds.size
         let mainFrame = CGRect(x: 0, y: 0, width: mainBoundSize.width, height: mainBoundSize.height)
@@ -30,13 +42,9 @@ class OrnamentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchBarconfigur()
         setupSideMenu()
         setupCollectionView()
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(showkeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(hidekeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
     
     
@@ -69,7 +77,8 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "header")
+    
     }
     
     
@@ -103,6 +112,8 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
             return cell
         }
         
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -123,6 +134,32 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
         performSegue(withIdentifier: "DetailsView", sender: nil)
         
     }
+    //viewForSupplementaryをつけることができるヘッダーやフッターなので
+    
+    fileprivate func extractedFunc(_ indexPath: IndexPath, _ header1: HeaderCollectionReusableView) -> UICollectionReusableView {
+        if indexPath.section == 0 {
+            
+            header1.label.text = ""
+            
+        } else {
+            
+            header1.label.text = ""
+            
+        }
+        
+        return header1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                      withReuseIdentifier: "header",
+                                                                      for: indexPath) as! HeaderCollectionReusableView
+        return extractedFunc(indexPath, header)
+    }
+    
+    
+    
+    
 }
 
 
