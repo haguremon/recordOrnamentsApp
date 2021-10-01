@@ -243,14 +243,14 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wKU-Da-MUL">
-                                                <rect key="frame" x="25" y="37" width="266" height="620"/>
+                                                <rect key="frame" x="8" y="27" width="300" height="667"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="wKU-Da-MUL" firstAttribute="leading" secondItem="m0W-wK-scE" secondAttribute="leading" constant="25" id="7mb-Jg-maA"/>
-                                            <constraint firstItem="m0W-wK-scE" firstAttribute="bottom" secondItem="wKU-Da-MUL" secondAttribute="bottom" constant="45" id="Mse-sv-Swp"/>
-                                            <constraint firstItem="m0W-wK-scE" firstAttribute="trailing" secondItem="wKU-Da-MUL" secondAttribute="trailing" constant="25" id="fsg-Jw-D1v"/>
-                                            <constraint firstItem="wKU-Da-MUL" firstAttribute="top" secondItem="m0W-wK-scE" secondAttribute="top" constant="37" id="ndd-rO-gfl"/>
+                                            <constraint firstItem="m0W-wK-scE" firstAttribute="bottom" secondItem="wKU-Da-MUL" secondAttribute="bottom" constant="8" id="9QN-gl-NBp"/>
+                                            <constraint firstItem="m0W-wK-scE" firstAttribute="trailing" secondItem="wKU-Da-MUL" secondAttribute="trailing" constant="8" id="Ywg-YY-I1s"/>
+                                            <constraint firstItem="wKU-Da-MUL" firstAttribute="leading" secondItem="m0W-wK-scE" secondAttribute="leading" constant="8" id="lba-gg-olV"/>
+                                            <constraint firstItem="wKU-Da-MUL" firstAttribute="top" secondItem="m0W-wK-scE" secondAttribute="top" constant="27" id="r9s-ih-K0V"/>
                                         </constraints>
                                         <viewLayoutGuide key="contentLayoutGuide" id="Yub-FA-cwo"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="m0W-wK-scE"/>
@@ -266,7 +266,7 @@
                                 <rect key="frame" x="127" y="772" width="160" height="30"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="uVv-NS-T3Z"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="uVv-NS-T3Z"/>
                                 </constraints>
                                 <state key="normal" title="戻る">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -279,11 +279,11 @@
                         <viewLayoutGuide key="safeArea" id="3YX-WN-dgQ"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="R7I-3a-UEa" firstAttribute="top" secondItem="3YX-WN-dgQ" secondAttribute="top" constant="26" id="5RO-9N-10S"/>
                             <constraint firstItem="R7I-3a-UEa" firstAttribute="leading" secondItem="3YX-WN-dgQ" secondAttribute="leading" constant="49" id="F97-X3-hnp"/>
-                            <constraint firstItem="s1x-K9-OWF" firstAttribute="top" secondItem="R7I-3a-UEa" secondAttribute="bottom" id="YS4-7v-2Yn"/>
-                            <constraint firstItem="3YX-WN-dgQ" firstAttribute="bottom" secondItem="s1x-K9-OWF" secondAttribute="bottom" constant="60" id="afQ-iH-Yso"/>
-                            <constraint firstItem="wKU-Da-MUL" firstAttribute="centerX" secondItem="3YX-WN-dgQ" secondAttribute="centerX" id="e0l-5E-HdU"/>
+                            <constraint firstItem="3YX-WN-dgQ" firstAttribute="bottom" secondItem="s1x-K9-OWF" secondAttribute="bottom" constant="60" id="JRs-D7-nYD"/>
+                            <constraint firstItem="R7I-3a-UEa" firstAttribute="top" secondItem="3YX-WN-dgQ" secondAttribute="top" constant="26" id="PZ2-VI-2mN"/>
+                            <constraint firstItem="R7I-3a-UEa" firstAttribute="centerX" secondItem="uh4-7z-Hnr" secondAttribute="centerX" id="Re0-3M-cKS"/>
+                            <constraint firstItem="s1x-K9-OWF" firstAttribute="top" secondItem="R7I-3a-UEa" secondAttribute="bottom" id="aEI-6d-KMG"/>
                             <constraint firstItem="s1x-K9-OWF" firstAttribute="centerX" secondItem="uh4-7z-Hnr" secondAttribute="centerX" id="eYV-Os-3Rf"/>
                             <constraint firstItem="R7I-3a-UEa" firstAttribute="centerX" secondItem="uh4-7z-Hnr" secondAttribute="centerX" id="nsN-gk-ejK"/>
                             <constraint firstItem="3YX-WN-dgQ" firstAttribute="trailing" secondItem="R7I-3a-UEa" secondAttribute="trailing" constant="49" id="yYA-03-w0Z"/>
@@ -291,7 +291,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Yfa-0o-4PM"/>
                     <connections>
+                        <outlet property="backButton" destination="s1x-K9-OWF" id="wcR-MB-yTo"/>
                         <outlet property="belowView" destination="R7I-3a-UEa" id="arR-Nd-mT0"/>
+                        <outlet property="imageView" destination="wKU-Da-MUL" id="3oU-l8-v1b"/>
                         <outlet property="pageControl" destination="XEk-xe-YP7" id="yN9-eG-7pt"/>
                         <outlet property="scrollView" destination="BW4-WE-p5q" id="pgf-JA-q72"/>
                     </connections>
@@ -499,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuY-YN-xXk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-180" y="859"/>
+            <point key="canvasLocation" x="-180.43478260869566" y="858.81696428571422"/>
         </scene>
         <!--Ornament View Controller-->
         <scene sceneID="eBB-Kp-dag">

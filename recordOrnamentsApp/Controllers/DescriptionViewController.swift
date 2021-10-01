@@ -26,6 +26,10 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,16 +58,28 @@ class DescriptionViewController: UIViewController {
         let imageView = UIImageView(frame: CGRect(x: x, y: y, width: width, height: height))
         let image = UIImage(systemName:  image.imageName)
         imageView.image = image
-        
+        imageView.clipsToBounds = true
+      
         return imageView
     }
     func setUpImageView() {
         for i in 0 ..< self.photoList.count {
             let photoItem = self.photoList[i]
-            let imageView = createImageView(x: 0, y: 0, width: self.belowView.frame.size.width, height: self.scrollView.frame.size.height, image: photoItem)
-            imageView.frame = CGRect(origin: CGPoint(x: self.belowView.frame.size.width * CGFloat(i), y: 0), size: CGSize(width: self.belowView.frame.size.width, height: self.scrollView.frame.size.height))
-            imageView.clipsToBounds = true
+            let imageView = createImageView(x: 0, y: 0, width: self.belowView.frame.size.width, height: self.belowView.frame.size.height, image: photoItem)
+            
+            self.imageView.frame = CGRect(origin: CGPoint(x: self.belowView.frame.size.width * CGFloat(i), y: 0), size: CGSize(width: self.belowView.frame.size.width, height: self.belowView.frame.size.height))
+            
+            imageView.frame = CGRect(origin: CGPoint(x: self.belowView.frame.size.width * CGFloat(i), y: 0), size: CGSize(width: self.belowView.frame.size.width, height: self.belowView.frame.size.height))
+            
             self.scrollView.addSubview(imageView)
+            
+//         imageView.topAnchor.constraint(equalTo: belowView.centerYAnchor,constant: 20).isActive = true
+//           imageView.leftAnchor.constraint(equalTo: belowView.centerXAnchor,constant: 0).isActive = true
+//
+    
+          
+            
+           
         }
         
         
