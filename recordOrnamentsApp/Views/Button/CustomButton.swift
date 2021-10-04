@@ -5,7 +5,6 @@
 //  Created by IwasakIYuta on 2021/09/23.
 //
 
-import Foundation
 import UIKit
 
 class CustomButton: UIButton {
@@ -30,7 +29,7 @@ extension CustomButton {
     internal func commonInit(){
         self.layer.shadowOffset = CGSize(width: 1, height: 1 )
         self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 50
         self.layer.shadowRadius = 5
         self.layer.shadowOpacity = 1.0
     }

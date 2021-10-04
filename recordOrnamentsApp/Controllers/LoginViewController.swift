@@ -33,9 +33,9 @@ class LoginViewController: UIViewController {
         let background = AnimationView(name: "background2")
         background.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height + 10)
         background.center = self.view.center
-        background.loopMode = .loop
+        background.loopMode = .autoReverse
         background.contentMode = .scaleAspectFit
-        background.animationSpeed = 0.8
+        background.animationSpeed = 0.7
 
         animationView.addSubview(background)
 
