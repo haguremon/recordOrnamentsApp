@@ -25,14 +25,14 @@ class  CollectionViewLayout {
             widthDimension: .fractionalWidth(0.5),
             heightDimension: .absolute(170)))
         
-        item.contentInsets = .init(top: 2, leading: 8, bottom: 12, trailing: 8)
+        item.contentInsets = .init(top: 2, leading: 5, bottom: 12, trailing: 2)
         
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
             widthDimension: .fractionalWidth(1),
             heightDimension: .estimated(1000)),                     subitems: [item])
         
-        group.contentInsets = .init(top: 3, leading: 10, bottom: 0, trailing: 10)
+        group.contentInsets = .init(top: 2, leading: 5, bottom: 0, trailing: 2)
         
         
         let section = NSCollectionLayoutSection(group: group)
