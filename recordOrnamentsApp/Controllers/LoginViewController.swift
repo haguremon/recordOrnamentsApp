@@ -18,9 +18,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    animation()
+        animation()
     }
-
+    
     
     @IBAction func descriptionScreenButton(_ sender: UIButton) {
         
@@ -29,38 +29,45 @@ class LoginViewController: UIViewController {
     }
     private func animation() {
         
-
+        
         let background = AnimationView(name: "background2")
         background.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height + 10)
         background.center = self.view.center
         background.loopMode = .autoReverse
         background.contentMode = .scaleAspectFit
         background.animationSpeed = 0.7
-
+        
         animationView.addSubview(background)
-
+        
         background.play()
         
         
     }
     
     
-    func testanimation(logintest: Bool, button: UIButton){
+    func testanimation(button: UIButton,logintest: Bool,completion: (() -> Void)? = nil){
         if logintest == true {
             button.pulsate()
             
         } else {
             button.errorAnimation(duration: 0.01)
         }
-        
     }
     @IBAction func loginButton(_ sender: CustomButton) {
-        testanimation(logintest: true, button: sender)
+        testanimation(button: sender, logintest: false)
         
     }
-
+    
     @IBAction func presentToRegistrButton(_ sender: CustomButton) {
-        testanimation(logintest: false, button: sender)
+
+        testanimation(button: sender, logintest: true)
+            
+            self.performSegue(withIdentifier: "registrSegue", sender: nil)
+            print("test")
+    
+                
+
+        
     }
     
     
