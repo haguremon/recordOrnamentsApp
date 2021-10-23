@@ -64,11 +64,12 @@ class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //checkIfUserIsLoggedIn()
+        checkIfUserIsLoggedIn()
         //guard let authCredential = self.authCredentials else { return }
        // print("\(authCredential.name)")
         print("hello")
-        navigationController?.title = "置物"
+        navigationController?.navigationController?.title = "置物"
+        //navigationController?.title = "置物"
         configurenavigationController()
         collectionView.backgroundColor = .systemBackground
         view.backgroundColor = .systemBackground
@@ -82,7 +83,6 @@ class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
     private func setupSideMenu() {
         weak var sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
         sideMenuViewController?.delegate = self
-        sideMenuViewController?.authCredentials = self.authCredentials
         menu = SideMenuNavigationController(rootViewController: sideMenuViewController!)
         menu?.leftSide = true
         menu?.settings = makeSettings()

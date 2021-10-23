@@ -26,12 +26,12 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     
-    var authCredentials: AuthCredentials? {
-        
-        didSet { configure() }
-        
-        
-    }
+//    var authCredentials: AuthCredentials? {
+//
+//        didSet { configure() }
+//
+//
+//    }
     
     weak var delegate: SideMenuViewControllerDelegate?
     
@@ -45,11 +45,11 @@ class SideMenuViewController: UIViewController {
     
     }
     
-    private func configure() {
-        imageView.image = authCredentials?.profileImage
-        usernameLabel.text = authCredentials?.name
-        
-    }
+//    private func configure() {
+//        imageView.image = authCredentials?.profileImage
+//        usernameLabel.text = authCredentials?.name
+//
+//    }
 
     /*
     // MARK: - Navigation
