@@ -24,6 +24,15 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    var authCredentials: AuthCredentials? {
+        
+        didSet { configure() }
+        
+        
+    }
+    
     weak var delegate: SideMenuViewControllerDelegate?
     
     let sideMenuItems: [SideMenuItem] = SideMenuItem.allCases
@@ -36,6 +45,11 @@ class SideMenuViewController: UIViewController {
     
     }
     
+    private func configure() {
+        imageView.image = authCredentials?.profileImage
+        usernameLabel.text = authCredentials?.name
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -72,7 +86,7 @@ extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
         //ここでの通知をViewControllernに伝えてその内容をViewControllerでやる
         delegate?.didSelectMeunItem(name: selectItem)
         
-        performSegue(withIdentifier: "\(selectItem)", sender: nil)
+        //performSegue(withIdentifier: "\(selectItem)", sender: nil)
         print("tap")
     }
 

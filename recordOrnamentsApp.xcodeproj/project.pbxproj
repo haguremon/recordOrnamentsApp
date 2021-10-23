@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		326197CE6B376858D485931E /* Pods_recordOrnamentsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC10563D9A190CE1303F1F78 /* Pods_recordOrnamentsAppTests.framework */; };
+		47FD0702886A3B4ED9AC2CDD /* Pods_recordOrnamentsApp_recordOrnamentsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A75445A2429C3958C23B27 /* Pods_recordOrnamentsApp_recordOrnamentsAppUITests.framework */; };
+		B7AB6C5AFB76F00E1D1606EB /* Pods_recordOrnamentsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC92C14830302263FA47E2F /* Pods_recordOrnamentsApp.framework */; };
 		CF2891C72702BDAA00FEC85A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CF2891C62702BDAA00FEC85A /* Lottie */; };
 		CF2891CB2702C56300FEC85A /* background2.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2891CA2702C56300FEC85A /* background2.json */; };
 		CF36A0BB26E5E0CC00ADD2DA /* OrnamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */; };
@@ -19,8 +22,6 @@
 		CF4CE5812700446400BD78CA /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */; };
 		CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE126E894C500150D9F /* DescriptionViewController.swift */; };
 		CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE326E89F3300150D9F /* IconViewController.swift */; };
-		CF96065226FCC31C00E4D2BF /* extensionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */; };
-		CF96065426FCC93D00E4D2BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065326FCC93D00E4D2BF /* CustomButton.swift */; };
 		CF96065726FD7E2600E4D2BF /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = CF96065626FD7E2600E4D2BF /* SideMenu */; };
 		CF96065926FD7E8200E4D2BF /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */; };
 		CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */; };
@@ -31,6 +32,14 @@
 		CFB3BBC026E2096600EB2B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB3BBBE26E2096600EB2B1A /* LaunchScreen.storyboard */; };
 		CFB3BBCB26E2096600EB2B1A /* recordOrnamentsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBCA26E2096600EB2B1A /* recordOrnamentsAppTests.swift */; };
 		CFB3BBD626E2096600EB2B1A /* recordOrnamentsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBD526E2096600EB2B1A /* recordOrnamentsAppUITests.swift */; };
+		CFC22DA42723BDFD0016F688 /* UserSerivice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DA32723BDFD0016F688 /* UserSerivice.swift */; };
+		CFC22DAA2723CBAA0016F688 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFC22DA92723CBAA0016F688 /* GoogleService-Info.plist */; };
+		CFC22DAC2723CC410016F688 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DAB2723CC410016F688 /* AuthService.swift */; };
+		CFC22DAF2723CD5C0016F688 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DAE2723CD5C0016F688 /* Constants.swift */; };
+		CFC22DB12723CE5C0016F688 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB02723CE5C0016F688 /* ImageUploader.swift */; };
+		CFC22DB42723DDA60016F688 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = CFC22DB32723DDA60016F688 /* JGProgressHUD */; };
+		CFC22DB72723DDE40016F688 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB62723DDE40016F688 /* Extensions.swift */; };
+		CFC22DB92723EF620016F688 /* OrnamentNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB82723EF620016F688 /* OrnamentNavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		065ADD464A1323181C6FDC6A /* Pods-recordOrnamentsApp-recordOrnamentsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordOrnamentsApp-recordOrnamentsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-recordOrnamentsApp-recordOrnamentsAppUITests/Pods-recordOrnamentsApp-recordOrnamentsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		17A92D214E17A23D6F5F80B4 /* Pods-recordOrnamentsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordOrnamentsApp.debug.xcconfig"; path = "Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		48EEFE4858349C94C135527F /* Pods-recordOrnamentsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordOrnamentsApp.release.xcconfig"; path = "Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp.release.xcconfig"; sourceTree = "<group>"; };
+		5145B5A6E574F5610B631C16 /* Pods-recordOrnamentsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordOrnamentsAppTests.release.xcconfig"; path = "Target Support Files/Pods-recordOrnamentsAppTests/Pods-recordOrnamentsAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		5DC92C14830302263FA47E2F /* Pods_recordOrnamentsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordOrnamentsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DD56CF5F56F4D5BDFC8B899 /* Pods-recordOrnamentsApp-recordOrnamentsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordOrnamentsApp-recordOrnamentsAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-recordOrnamentsApp-recordOrnamentsAppUITests/Pods-recordOrnamentsApp-recordOrnamentsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9AF5804951B8EE93CB66504D /* Pods-recordOrnamentsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordOrnamentsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-recordOrnamentsAppTests/Pods-recordOrnamentsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC10563D9A190CE1303F1F78 /* Pods_recordOrnamentsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordOrnamentsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A75445A2429C3958C23B27 /* Pods_recordOrnamentsApp_recordOrnamentsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recordOrnamentsApp_recordOrnamentsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2891CA2702C56300FEC85A /* background2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = background2.json; sourceTree = "<group>"; };
 		CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnamentViewController.swift; sourceTree = "<group>"; };
 		CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -61,8 +79,6 @@
 		CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CF91FBE126E894C500150D9F /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		CF91FBE326E89F3300150D9F /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
-		CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIButton.swift; sourceTree = "<group>"; };
-		CF96065326FCC93D00E4D2BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordOrnamentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +94,14 @@
 		CFB3BBD126E2096600EB2B1A /* recordOrnamentsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = recordOrnamentsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB3BBD526E2096600EB2B1A /* recordOrnamentsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordOrnamentsAppUITests.swift; sourceTree = "<group>"; };
 		CFB3BBD726E2096600EB2B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFC22DA32723BDFD0016F688 /* UserSerivice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSerivice.swift; sourceTree = "<group>"; };
+		CFC22DA92723CBAA0016F688 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CFC22DAB2723CC410016F688 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		CFC22DAE2723CD5C0016F688 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFC22DB02723CE5C0016F688 /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		CFC22DB62723DDE40016F688 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CFC22DB82723EF620016F688 /* OrnamentNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnamentNavigationViewController.swift; sourceTree = "<group>"; };
+		CFC22DBB272445730016F688 /* recordOrnamentsApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = recordOrnamentsApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +109,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFC22DB42723DDA60016F688 /* JGProgressHUD in Frameworks */,
 				CF96065726FD7E2600E4D2BF /* SideMenu in Frameworks */,
 				CF2891C72702BDAA00FEC85A /* Lottie in Frameworks */,
+				B7AB6C5AFB76F00E1D1606EB /* Pods_recordOrnamentsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326197CE6B376858D485931E /* Pods_recordOrnamentsAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,12 +128,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47FD0702886A3B4ED9AC2CDD /* Pods_recordOrnamentsApp_recordOrnamentsAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5031F57AE05AC8CC21D046C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17A92D214E17A23D6F5F80B4 /* Pods-recordOrnamentsApp.debug.xcconfig */,
+				48EEFE4858349C94C135527F /* Pods-recordOrnamentsApp.release.xcconfig */,
+				7DD56CF5F56F4D5BDFC8B899 /* Pods-recordOrnamentsApp-recordOrnamentsAppUITests.debug.xcconfig */,
+				065ADD464A1323181C6FDC6A /* Pods-recordOrnamentsApp-recordOrnamentsAppUITests.release.xcconfig */,
+				9AF5804951B8EE93CB66504D /* Pods-recordOrnamentsAppTests.debug.xcconfig */,
+				5145B5A6E574F5610B631C16 /* Pods-recordOrnamentsAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		51072523537288AD12CBA513 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DC92C14830302263FA47E2F /* Pods_recordOrnamentsApp.framework */,
+				B1A75445A2429C3958C23B27 /* Pods_recordOrnamentsApp_recordOrnamentsAppUITests.framework */,
+				AC10563D9A190CE1303F1F78 /* Pods_recordOrnamentsAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CF49DEA326E344FC008707C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +168,7 @@
 				CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */,
 				CF91FBE126E894C500150D9F /* DescriptionViewController.swift */,
 				CF91FBE326E89F3300150D9F /* IconViewController.swift */,
+				CFC22DB82723EF620016F688 /* OrnamentNavigationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -124,19 +176,10 @@
 		CF4CE57926FDA8D300BD78CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF4CE57C26FE063300BD78CA /* Button */,
+				CFC22DA52723C0A70016F688 /* StoryBoards */,
 				CF4CE57D2700440E00BD78CA /* CollectionView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		CF4CE57C26FE063300BD78CA /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				CF96065126FCC31C00E4D2BF /* extensionUIButton.swift */,
-				CF96065326FCC93D00E4D2BF /* CustomButton.swift */,
-			);
-			path = Button;
 			sourceTree = "<group>";
 		};
 		CF4CE57D2700440E00BD78CA /* CollectionView */ = {
@@ -157,6 +200,8 @@
 				CFB3BBC926E2096600EB2B1A /* recordOrnamentsAppTests */,
 				CFB3BBD426E2096600EB2B1A /* recordOrnamentsAppUITests */,
 				CFB3BBB126E2096200EB2B1A /* Products */,
+				5031F57AE05AC8CC21D046C1 /* Pods */,
+				51072523537288AD12CBA513 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,14 +218,14 @@
 		CFB3BBB226E2096200EB2B1A /* recordOrnamentsApp */ = {
 			isa = PBXGroup;
 			children = (
-				CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */,
-				CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */,
+				CFC22DBB272445730016F688 /* recordOrnamentsApp.entitlements */,
+				CFC22DA92723CBAA0016F688 /* GoogleService-Info.plist */,
+				CFB3BBC126E2096600EB2B1A /* Info.plist */,
+				CFC22DAD2723CD180016F688 /* Utils */,
+				CFC22DA72723CB580016F688 /* Resources */,
 				CF4CE57926FDA8D300BD78CA /* Views */,
 				CF49DEA326E344FC008707C2 /* Controllers */,
-				CFB3BBB926E2096200EB2B1A /* Main.storyboard */,
 				CFB3BBBC26E2096600EB2B1A /* Assets.xcassets */,
-				CFB3BBBE26E2096600EB2B1A /* LaunchScreen.storyboard */,
-				CFB3BBC126E2096600EB2B1A /* Info.plist */,
 				CF2891CA2702C56300FEC85A /* background2.json */,
 			);
 			path = recordOrnamentsApp;
@@ -204,6 +249,44 @@
 			path = recordOrnamentsAppUITests;
 			sourceTree = "<group>";
 		};
+		CFC22DA22723BDD60016F688 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CFC22DA32723BDFD0016F688 /* UserSerivice.swift */,
+				CFC22DAB2723CC410016F688 /* AuthService.swift */,
+				CFC22DB02723CE5C0016F688 /* ImageUploader.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CFC22DA52723C0A70016F688 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				CFB3BBB926E2096200EB2B1A /* Main.storyboard */,
+				CFB3BBBE26E2096600EB2B1A /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		CFC22DA72723CB580016F688 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */,
+				CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */,
+				CFC22DA22723BDD60016F688 /* API */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CFC22DAD2723CD180016F688 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CFC22DAE2723CD5C0016F688 /* Constants.swift */,
+				CFC22DB62723DDE40016F688 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,9 +294,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFB3BBDA26E2096600EB2B1A /* Build configuration list for PBXNativeTarget "recordOrnamentsApp" */;
 			buildPhases = (
+				49206C75E157D70F1A857BF5 /* [CP] Check Pods Manifest.lock */,
 				CFB3BBAC26E2096200EB2B1A /* Sources */,
 				CFB3BBAD26E2096200EB2B1A /* Frameworks */,
 				CFB3BBAE26E2096200EB2B1A /* Resources */,
+				8AD0A4AC60A9ADEDF584CDC2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,6 +308,7 @@
 			packageProductDependencies = (
 				CF96065626FD7E2600E4D2BF /* SideMenu */,
 				CF2891C62702BDAA00FEC85A /* Lottie */,
+				CFC22DB32723DDA60016F688 /* JGProgressHUD */,
 			);
 			productName = recordOrnamentsApp;
 			productReference = CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */;
@@ -232,6 +318,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFB3BBDD26E2096600EB2B1A /* Build configuration list for PBXNativeTarget "recordOrnamentsAppTests" */;
 			buildPhases = (
+				553AB6CF780EF0358BC94EBF /* [CP] Check Pods Manifest.lock */,
 				CFB3BBC226E2096600EB2B1A /* Sources */,
 				CFB3BBC326E2096600EB2B1A /* Frameworks */,
 				CFB3BBC426E2096600EB2B1A /* Resources */,
@@ -250,9 +337,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFB3BBE026E2096600EB2B1A /* Build configuration list for PBXNativeTarget "recordOrnamentsAppUITests" */;
 			buildPhases = (
+				8C49833A63F0DC25CC340942 /* [CP] Check Pods Manifest.lock */,
 				CFB3BBCD26E2096600EB2B1A /* Sources */,
 				CFB3BBCE26E2096600EB2B1A /* Frameworks */,
 				CFB3BBCF26E2096600EB2B1A /* Resources */,
+				BB49CEDE2A9916A9765E1886 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,6 +387,7 @@
 			packageReferences = (
 				CF96065526FD7E2600E4D2BF /* XCRemoteSwiftPackageReference "SideMenu" */,
 				CF2891C52702BDAA00FEC85A /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				CFC22DB22723DDA60016F688 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = CFB3BBB126E2096200EB2B1A /* Products */;
 			projectDirPath = "";
@@ -318,6 +408,7 @@
 				CFB3BBC026E2096600EB2B1A /* LaunchScreen.storyboard in Resources */,
 				CFB3BBBD26E2096600EB2B1A /* Assets.xcassets in Resources */,
 				CF4CE5812700446400BD78CA /* CollectionViewCell.xib in Resources */,
+				CFC22DAA2723CBAA0016F688 /* GoogleService-Info.plist in Resources */,
 				CF2891CB2702C56300FEC85A /* background2.json in Resources */,
 				CFB3BBBB26E2096200EB2B1A /* Main.storyboard in Resources */,
 			);
@@ -339,25 +430,132 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		49206C75E157D70F1A857BF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-recordOrnamentsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		553AB6CF780EF0358BC94EBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-recordOrnamentsAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AD0A4AC60A9ADEDF584CDC2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C49833A63F0DC25CC340942 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-recordOrnamentsApp-recordOrnamentsAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB49CEDE2A9916A9765E1886 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp-recordOrnamentsAppUITests/Pods-recordOrnamentsApp-recordOrnamentsAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp-recordOrnamentsAppUITests/Pods-recordOrnamentsApp-recordOrnamentsAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp-recordOrnamentsAppUITests/Pods-recordOrnamentsApp-recordOrnamentsAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CFB3BBAC26E2096200EB2B1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */,
+				CFC22DAF2723CD5C0016F688 /* Constants.swift in Sources */,
 				CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */,
 				CF36A0BB26E5E0CC00ADD2DA /* OrnamentViewController.swift in Sources */,
+				CFC22DA42723BDFD0016F688 /* UserSerivice.swift in Sources */,
+				CFC22DB12723CE5C0016F688 /* ImageUploader.swift in Sources */,
 				CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */,
+				CFC22DB72723DDE40016F688 /* Extensions.swift in Sources */,
 				CF96065926FD7E8200E4D2BF /* SideMenuViewController.swift in Sources */,
-				CF96065426FCC93D00E4D2BF /* CustomButton.swift in Sources */,
 				CF4CE57B26FDA8E500BD78CA /* CollectionViewLayout.swift in Sources */,
 				CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */,
 				CF4CE5802700446400BD78CA /* CollectionViewCell.swift in Sources */,
+				CFC22DB92723EF620016F688 /* OrnamentNavigationViewController.swift in Sources */,
 				CF4706E82706A06400F7B941 /*  HeaderCollectionReusable.swift in Sources */,
 				CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */,
 				CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */,
-				CF96065226FCC31C00E4D2BF /* extensionUIButton.swift in Sources */,
 				CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */,
+				CFC22DAC2723CC410016F688 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,9 +729,11 @@
 		};
 		CFB3BBDB26E2096600EB2B1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17A92D214E17A23D6F5F80B4 /* Pods-recordOrnamentsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = recordOrnamentsApp/recordOrnamentsApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XS2R7967QT;
 				INFOPLIST_FILE = recordOrnamentsApp/Info.plist;
@@ -551,9 +751,11 @@
 		};
 		CFB3BBDC26E2096600EB2B1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48EEFE4858349C94C135527F /* Pods-recordOrnamentsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = recordOrnamentsApp/recordOrnamentsApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XS2R7967QT;
 				INFOPLIST_FILE = recordOrnamentsApp/Info.plist;
@@ -571,6 +773,7 @@
 		};
 		CFB3BBDE26E2096600EB2B1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF5804951B8EE93CB66504D /* Pods-recordOrnamentsAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -593,6 +796,7 @@
 		};
 		CFB3BBDF26E2096600EB2B1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5145B5A6E574F5610B631C16 /* Pods-recordOrnamentsAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -615,6 +819,7 @@
 		};
 		CFB3BBE126E2096600EB2B1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DD56CF5F56F4D5BDFC8B899 /* Pods-recordOrnamentsApp-recordOrnamentsAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -635,6 +840,7 @@
 		};
 		CFB3BBE226E2096600EB2B1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 065ADD464A1323181C6FDC6A /* Pods-recordOrnamentsApp-recordOrnamentsAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -711,6 +917,14 @@
 				kind = branch;
 			};
 		};
+		CFC22DB22723DDA60016F688 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -723,6 +937,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF96065526FD7E2600E4D2BF /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		CFC22DB32723DDA60016F688 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFC22DB22723DDA60016F688 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

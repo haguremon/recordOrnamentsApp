@@ -12,23 +12,20 @@ class LoginViewController: UIViewController {
     
     
     
-    let customButton = CustomButton()
-    
-    @IBOutlet weak var animationView: UIView!
+    @IBOutlet private var animationView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animation()
+        movingBackground()
+      
     }
-    
-    
+        
     @IBAction func descriptionScreenButton(_ sender: UIButton) {
         
         performSegue(withIdentifier: "ModalSegue", sender: nil)
         
     }
-    private func animation() {
-        
+    private func movingBackground() {
         
         let background = AnimationView(name: "background2")
         background.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height + 10)
@@ -36,39 +33,18 @@ class LoginViewController: UIViewController {
         background.loopMode = .autoReverse
         background.contentMode = .scaleAspectFit
         background.animationSpeed = 0.7
-        
+
         animationView.addSubview(background)
-        
+
         background.play()
         
         
     }
     
-    
-    func testanimation(button: UIButton,logintest: Bool,completion: (() -> Void)? = nil){
-        if logintest == true {
-            button.pulsate()
-            
-        } else {
-            button.errorAnimation(duration: 0.01)
-        }
-    }
-    @IBAction func loginButton(_ sender: CustomButton) {
-        testanimation(button: sender, logintest: false)
-        
+    @IBAction func loginButton(_ sender: UIButton) {
+        sender.showAnimation(false)
     }
     
-    @IBAction func presentToRegistrButton(_ sender: CustomButton) {
-
-        testanimation(button: sender, logintest: true)
-            
-            self.performSegue(withIdentifier: "registrSegue", sender: nil)
-            print("test")
-    
-                
-
-        
-    }
     
     
     @IBAction func loginGuestButton(_ sender: Any) {
@@ -85,6 +61,9 @@ class LoginViewController: UIViewController {
     private func presentToOrnamentViewController() {
         
         performSegue(withIdentifier: "OrnamentViewSegue", sender: nil)
+        
+    }
+    @IBAction private func exit(segue: UIStoryboardSegue) {
         
     }
     

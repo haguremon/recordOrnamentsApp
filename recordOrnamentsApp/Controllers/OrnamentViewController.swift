@@ -7,24 +7,15 @@
 
 import UIKit
 import SideMenu
+import FirebaseAuth
 
-class OrnamentViewController: UIViewController {
+class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
+    
+    var authCredentials: AuthCredentials?
     
     @IBOutlet private var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    private func searchBarconfigur() {
-//        searchBar.layer.cornerRadius = 100
-//        searchBar.searchTextField.layer.cornerRadius = 100
-//        searchBar.searchTextField.frame.size.height = 60
-//        searchBar.translatesAutoresizingMaskIntoConstraints = false
-//        collectionView.keyboardDismissMode = .onDrag
-//        if #available(iOS 14, *) {
-//
-//                } else {
-//                    searchBar.searchTextField.font = UIFont.systemFont(ofSize: 16)
-//                }
+    private let searchController = UISearchController(searchResultsController: nil)
     
-    }
     private let coverView: UIView = {
         let mainBoundSize: CGSize = UIScreen.main.bounds.size
         let mainFrame = CGRect(x: 0, y: 0, width: mainBoundSize.width, height: mainBoundSize.height)
@@ -35,16 +26,138 @@ class OrnamentViewController: UIViewController {
         return view
     }()
     
-    var menu: SideMenuNavigationController? = nil
+    func didSelectMeunItem(name: SideMenuItem) {
+        menu?.dismiss(animated: true, completion:nil)
+        //閉じた時に移動する
+        
+        switch name {
+            
+        case .useGuide:
+            print("useGuide")
+            //present(createViewController()!, animated: true, completion: nil)
+        case .signOut:
+            print("log out")
+            do {
+                
+                try Auth.auth().signOut()
+                
+                presentToViewController()
+                
+                
+            } catch  {
+                print(error,"ログアウトに失敗sました")
+            }
+            
+        case .contact:
+            print("aaaaaaaaa")
+            view.backgroundColor = .green
+        }
+    }
+    
+    
+    
+    var menu: SideMenuNavigationController?
     let collectionViewLayout = CollectionViewLayout()
     var color: UIColor? = .darkGray
     let imagename = ["square.and.arrow.up","paperplane","paperplane","paperplane","paperplane","arrow.down.to.line","gear","magnifyingglass","clock","square.and.arrow.up","paperplane","arrow.down.to.line","gear","magnifyingglass","clock"]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBarconfigur()
+        //checkIfUserIsLoggedIn()
+        //guard let authCredential = self.authCredentials else { return }
+       // print("\(authCredential.name)")
+        print("hello")
+        navigationController?.title = "置物"
+        configurenavigationController()
+        collectionView.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBackground
+        configureSearchController()
         setupSideMenu()
         setupCollectionView()
+        
+        
+        
+    }
+    private func setupSideMenu() {
+        weak var sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
+        sideMenuViewController?.delegate = self
+        sideMenuViewController?.authCredentials = self.authCredentials
+        menu = SideMenuNavigationController(rootViewController: sideMenuViewController!)
+        menu?.leftSide = true
+        menu?.settings = makeSettings()
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+        
+    }
+    func checkIfUserIsLoggedIn() {
+        // configurenavigationController()
+        if Auth.auth().currentUser == nil  {
+            //ログイン中じゃない場合はLoginControllerに移動する
+            
+            
+            DispatchQueue.main.async {
+                self.checkIfUserIsLoggedIn()
+            }
+            
+            
+            
+        }
+    }
+    
+    
+    
+    //    override func viewDidLayoutSubviews() {
+    //        super.viewDidLayoutSubviews()
+    //        //checkIfUserIsLoggedIn()
+    //    }
+    //
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //        DispatchQueue.main.async {
+    //            self.checkIfUserIsLoggedIn()
+    //        }
+    //
+    //
+    //    }
+    
+    
+    //override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //      //  checkIfUserIsLoggedIn()
+    //    }
+    
+    
+    //loginSegue
+    private func presentToViewController() {
+        
+        //RegisterViewControllerに移動する
+        let loginViewController = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        loginViewController.modalPresentationStyle = .fullScreen
+        present(loginViewController, animated: false, completion: nil)
+        //        let navController = UINavigationController(rootViewController: loginViewController)
+        //        navController.modalPresentationStyle = .fullScreen
+        //        navController.navigationBar.isHidden = true
+        //        DispatchQueue.main.async {
+        //
+        //            self.present(navController, animated: false, completion: nil)
+        //
+        //        }
+        
+    }
+    func configurenavigationController() {
+        navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    func configureSearchController(){
+        // searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        //searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        definesPresentationContext = false
     }
     
     
@@ -78,7 +191,7 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "header")
-    
+        
     }
     
     
@@ -152,8 +265,8 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                      withReuseIdentifier: "header",
-                                                                      for: indexPath) as! HeaderCollectionReusableView
+                                                                     withReuseIdentifier: "header",
+                                                                     for: indexPath) as! HeaderCollectionReusableView
         return extractedFunc(indexPath, header)
     }
     
@@ -165,23 +278,7 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
 
 //MRAK: -SideMeun
 
-extension OrnamentViewController: SideMenuNavigationControllerDelegate, SideMenuViewControllerDelegate {
-    
-    private func createViewController() -> SideMenuViewController? {
-        weak var sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
-        return sideMenuViewController
-    }
-    private func setupSideMenu() {
-        createViewController()!.delegate = self
-        
-        menu = SideMenuNavigationController(rootViewController: createViewController()!)
-        menu?.leftSide = true
-        menu?.settings = makeSettings()
-        SideMenuManager.default.leftMenuNavigationController = menu
-        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
-        
-    }
-    
+extension OrnamentViewController: SideMenuNavigationControllerDelegate {
     
     private func makeSettings() -> SideMenuSettings {
         var settings = SideMenuSettings()
@@ -198,20 +295,6 @@ extension OrnamentViewController: SideMenuNavigationControllerDelegate, SideMenu
     
     
     
-    func didSelectMeunItem(name: SideMenuItem) {
-        menu?.dismiss(animated: true, completion:nil)
-        //閉じた時に移動する
-        
-        switch name {
-            
-        case .useGuide:
-            present(createViewController()!, animated: true, completion: nil)
-        case .signOut:
-            view.backgroundColor = .blue
-        case .contact:
-            view.backgroundColor = .green
-        }
-    }
     
     
     func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
@@ -225,7 +308,32 @@ extension OrnamentViewController: SideMenuNavigationControllerDelegate, SideMenu
     
     
 }
-
+//extension OrnamentViewController: UISearchBarDelegate {
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        didCancelSearch()
+//        guard let text = searchBar.text, !text.isEmpty else {
+//            return
+//        }
+//
+//        query(text)
+//    }
+//
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel",
+//                                                            style: .plain,
+//                                                            target: self,
+//                                                            action: #selector(didCancelSearch))
+//    }
+//
+//    @objc private func didCancelSearch() {
+//        searchBar.resignFirstResponder()
+//        navigationItem.rightBarButtonItem = nil
+//    }
+//
+//    private func query(_ text: String) {
+//        // Perform in search in the back ends
+//    }
+//}
 
 
 ////MRAK: -keyboard

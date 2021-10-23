@@ -41,7 +41,7 @@ class  CollectionViewLayout {
             [
                 .init(layoutSize: .init(
                         widthDimension: .fractionalWidth(1),
-                        heightDimension: .absolute(20)),
+                        heightDimension: .absolute(5)),
                       elementKind: "header" ,
                       alignment: .top)
                 

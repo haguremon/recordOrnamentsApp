@@ -1,15 +1,31 @@
 //
-//  File.swift
+//  Extensions.swift
 //  recordOrnamentsApp
 //
-//  Created by IwasakIYuta on 2021/09/23.
+//  Created by IwasakIYuta on 2021/10/23.
 //
 
-import Foundation
+import JGProgressHUD
 import UIKit
 
+extension UIViewController {
+    static let hud = JGProgressHUD(style: .dark)
+    //インジゲーターの処理
+    func showLoader(_ show: Bool) {
+        view.endEditing(true)
+        
+        if show {
+            UIViewController.hud.show(in: view)
+        } else {
+            UIViewController.hud.dismiss()
+        }
+    }
+    
+    
+    
+}
 
-extension UIButton{
+extension UIButton {
     
     func pulsate(){
         // 強調するボタン
@@ -26,7 +42,7 @@ extension UIButton{
         layer.add(pulse, forKey: nil)
     }
     
-    func flash(){
+    func flash() {
         // 光るボタン
         let flash = CABasicAnimation(keyPath: "opacity")
         flash.duration = 0.5
@@ -39,7 +55,7 @@ extension UIButton{
     }
     
     func errorAnimation (duration: CFTimeInterval) {
-    // 揺れるボタン
+        // 揺れるボタン
         let shake = CASpringAnimation(keyPath: "position")
         shake.duration = duration
         shake.repeatCount = 2
@@ -51,10 +67,10 @@ extension UIButton{
         
         shake.fromValue = fromPoint
         shake.toValue = toPoint
-//        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {() -> Void in
-//            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0);
-//            self.alpha = 1
-//        },completion: nil)
+        //        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {() -> Void in
+        //            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0);
+        //            self.alpha = 1
+        //        },completion: nil)
         
         layer.add(shake, forKey: nil)
     }
@@ -70,4 +86,17 @@ extension UIButton{
         animation.stiffness = 120.0
         layer.add(animation, forKey: nil)
     }
+    
+    
+    func showAnimation(_ show: Bool) {
+        if show {
+            pulsate()
+            
+        } else {
+            errorAnimation(duration: 0.01)
+            
+        }
+    }
+    
+    
 }

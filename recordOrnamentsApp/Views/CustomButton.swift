@@ -27,11 +27,7 @@ extension CustomButton {
 
     //影付きのボタンの生成
     internal func commonInit(){
-        self.layer.shadowOffset = CGSize(width: 1, height: 1 )
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.cornerRadius = 50
-        self.layer.shadowRadius = 5
-        self.layer.shadowOpacity = 1.0
+
     }
 
     //ボタンが押された時のアニメーション//0.1 // 0.0
@@ -45,10 +41,6 @@ extension CustomButton {
     //ボタンから手が離れた時のアニメーション
     func touchEndAnimation(duration: TimeInterval,delay: TimeInterval) {
         
-        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {() -> Void in
-            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0);
-            self.alpha = 1
-        },completion: nil)
-
     }
+
 }

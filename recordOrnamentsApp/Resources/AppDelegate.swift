@@ -6,14 +6,29 @@
 //
 
 import UIKit
+import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {        
+        FirebaseApp.configure()
+        if #available(iOS 13.0, *) {
+           let appearance = UINavigationBarAppearance()
+           // appearance.configureWithDefaultBackground()
+
+//           appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.secondaryLabel]
+            appearance.backgroundColor = .systemBackground
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
+            // Large Title 用 NavigationBar の色設定
+           // UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            // 通常の NavigationBar の色設定
+            UINavigationBar.appearance().standardAppearance = appearance
+        } else {
+            // iOS 13 未満はこれまで通り
+            UINavigationBar.appearance().barTintColor = .secondarySystemBackground
+        }
         return true
     }
     
