@@ -61,20 +61,19 @@ class NewRegistrationsViewController: UIViewController {
            // self.dismiss(animated: true, completion: nil)
             let ornamentViewController = self.storyboard?.instantiateViewController(identifier: "OrnamentViewController") as! OrnamentViewController
             ornamentViewController.authCredentials = authCredential
-//            ornamentViewController.navigationController?.isNavigationBarHidden = false
-//            ornamentViewController.navigationController?.isToolbarHidden = false
-//            ornamentViewController.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(ornamentViewController, animated: true)
 
        // self.present(ornamentViewController, animated: true, completion: nil)
         }
-     
-        
 //        ornamentViewController.modalPresentationStyle = .fullScreen
 //        let naornamentViewController = UINavigationController(rootViewController: ornamentViewController)
 //        self.navigationController.pop
 //        self.navigationController?.pushViewController(naornamentViewController, animated: true)
         print("成功")
+        
+    }
+    private func transitionToOrnamentView() {
+        
         
     }
     
@@ -85,8 +84,9 @@ class NewRegistrationsViewController: UIViewController {
     private func  congigureButtton() {
         passwordTextField.textContentType = .newPassword
         passwordTextField.isSecureTextEntry = true
+        
         emailTextField.keyboardType = .emailAddress
-        userNameTextField.keyboardType = .default
+        userNameTextField.keyboardType = .namePhonePad
         
         registerButton.isEnabled = false
         
@@ -95,7 +95,8 @@ class NewRegistrationsViewController: UIViewController {
         registerButton.layer.shadowRadius = 5
         registerButton.layer.shadowOpacity = 1.0
         //registerButton.layer.cornerRadius = 10 //角を丸く
-       // registerButton.backgroundColor = UIColor.rgb(red: 180, green: 255, blue: 221)
+        registerButton.backgroundColor = UIColor(r: 180, g: 255, b: 211)
+       //registerButton.backgroundColor = UIColor.rgb(red: 180, green: 255, blue: 221)
         userNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -146,10 +147,10 @@ extension NewRegistrationsViewController :UITextFieldDelegate { //可読性の�
        let usernameIsEmpty = userNameTextField.text?.isEmpty ?? true
        if emailIsEmpty || passwordIsEmpty || usernameIsEmpty {
            registerButton.isEnabled = false
-          // registerButton.backgroundColor = UIColor.rgb(red: 180, green: 255, blue: 221)
+           registerButton.backgroundColor = UIColor(r: 180, g: 255, b: 221)
        } else {
            registerButton.isEnabled = true
-          // registerButton.backgroundColor = UIColor.rgb(red: 0, green: 255, blue: 150)
+          registerButton.backgroundColor = UIColor(r: 0, g: 255, b: 150)
        }
    }
 

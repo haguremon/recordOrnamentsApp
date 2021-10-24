@@ -559,6 +559,9 @@
                     <navigationItem key="navigationItem" id="2lE-Fs-UT2"/>
                     <connections>
                         <outlet property="animationView" destination="6lb-X9-jCe" id="7eP-qv-XzC"/>
+                        <outlet property="emailTextField" destination="xhz-6f-fQc" id="Xpe-EM-HFL"/>
+                        <outlet property="loginButton" destination="3jz-k5-Ws6" id="xKy-DP-8wi"/>
+                        <outlet property="passwordTextField" destination="hsn-hY-0O6" id="td7-LU-b2J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZi-6C-Z2s" sceneMemberID="firstResponder"/>
@@ -631,7 +634,7 @@
                                                         <rect key="frame" x="0.0" y="24" width="304" height="51"/>
                                                         <color key="backgroundColor" red="0.61350012460000003" green="0.70585143569999997" blue="0.65597041869999995" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>

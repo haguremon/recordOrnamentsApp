@@ -14,6 +14,14 @@ class LoginViewController: UIViewController {
     
     @IBOutlet private var animationView: UIView!
     
+    
+    @IBOutlet  private var emailTextField: UITextField!
+    
+    @IBOutlet  private var passwordTextField: UITextField!
+    
+    @IBOutlet private var loginButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         movingBackground()
@@ -25,6 +33,25 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "ModalSegue", sender: nil)
         
     }
+    private func  congigureButtton() {
+        passwordTextField.textContentType = .newPassword
+        passwordTextField.isSecureTextEntry = true
+        
+        emailTextField.keyboardType = .emailAddress
+        
+        loginButton.isEnabled = false
+        
+        loginButton.layer.shadowColor = UIColor.gray.cgColor
+        loginButton.layer.cornerRadius = 10
+        loginButton.layer.shadowRadius = 5
+        loginButton.layer.shadowOpacity = 1.0
+        //registerButton.layer.cornerRadius = 10 //角を丸く
+       // registerButton.backgroundColor = UIColor.rgb(red: 180, green: 255, blue: 221)
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+    }
+    
     private func movingBackground() {
         
         let background = AnimationView(name: "background2")
@@ -42,7 +69,21 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        sender.showAnimation(false)
+        
+        
+        
+    }
+    private func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        AuthService.logUserIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+        }
+        
     }
     
     
@@ -63,9 +104,28 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "OrnamentViewSegue", sender: nil)
         
     }
+   
+    
+    
     @IBAction private func exit(segue: UIStoryboardSegue) {
         
     }
     
 }
 
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let emailIsEmpty = emailTextField.text?.isEmpty ?? true
+        let passwordIsEmpty = passwordTextField.text?.isEmpty ?? true
+        if emailIsEmpty || passwordIsEmpty {
+            loginButton.isEnabled = false
+            //loginButton.backgroundColor = UIColor.rgb(red: 180, green: 255, blue: 221)
+        } else {
+            loginButton.isEnabled = true
+           // loginButton.backgroundColor = UIColor.rgb(red: 0, green: 255, blue: 150)
+        }
+    }
+    
+    
+}
