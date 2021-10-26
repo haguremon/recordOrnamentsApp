@@ -9,6 +9,8 @@ import UIKit
 import SideMenu
 import FirebaseAuth
 import PhotosUI
+import Photos
+
 protocol OrnamentViewControllerDelegate: AnyObject {
     func userDate(user: User)
 }
@@ -144,12 +146,16 @@ class OrnamentViewController: UIViewController {
     }
     
     @objc private func didTapPostToButton() {
-        var configuration = PHPickerConfiguration()
-        configuration.selectionLimit = 1
+        var configuration = PHPickerConfiguration(photoLibrary: .shared())
+        configuration.selectionLimit = 0
         
-
+        configuration.filter = .images
         
-        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        picker.modalPresentationStyle = .fullScreen
+        //navigationController?.pushViewController(picker, animated: true)
+        present(picker, animated: true)
         
     }
     
@@ -167,6 +173,68 @@ class OrnamentViewController: UIViewController {
         
         
     }
+    
+}
+
+extension OrnamentViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated:  true)
+            
+            guard let selectedImage = results.first?.itemProvider else { return }
+            selectedImage.canLoadObject(ofClass: UIImage.self)
+            selectedImage.loadObject(ofClass: UIImage.self) { image, error in
+                guard error == nil else {
+                    print("error: \(error?.localizedDescription)")
+                    return
+                }
+
+                if let image = image {
+                    DispatchQueue.main.async {
+                        
+                        let controller = UploadPostController()
+                        //ここで遷移渡しをしてuserの情報やselectedImageをUploadPostControllerにあげる
+                        controller.selectedImage = image as? UIImage
+                        //ここですでにcontrollerDidFinishUploadingPost()を保持
+                        controller.delegate = self
+                       //投稿してユーザーの情報を　渡す
+                        controller.currentUser = self.user
+                        //UploadPostControllerはUINavigationを含むのでrootViewControllerにして入れた
+                        controller.modalPresentationStyle = .fullScreen
+                        self.navigationController?.pushViewController(controller, animated: true)
+                        //self.present(controller, animated: true, completion: nil)
+//                        let nav = UINavigationController(rootViewController: controller)
+//                        print("UploadPostController")
+//                        nav.modalPresentationStyle = .fullScreen
+//                        self.navigationController?.pushViewController(nav, animated: true)
+                      //  self.present(nav, animated: false, completion: nil)
+
+                        
+                        
+                        
+                    }
+                   
+                
+                }
+            }
+           
+            
+            
+            
+    }
+    
+    
+    
+}
+
+extension OrnamentViewController: UploadPostControllerDelegate{
+    
+    func controllerDidFinishUploadingPost(_ controller: UploadPostController) {
+        
+        controller.dismiss(animated: true, completion: nil)
+
+    }
+    
+    
     
 }
 

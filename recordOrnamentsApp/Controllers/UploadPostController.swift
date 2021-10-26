@@ -58,7 +58,11 @@ class UploadPostController: UIViewController {
 //
 //    // MARK: - Actions
     @objc func didTapCancel(){
-        dismiss(animated: true, completion: nil)
+        seni()
+    }
+    
+    func seni(){
+        performSegue(withIdentifier: "vc", sender: nil)
     }
 //
     @objc func didTapDone() {
@@ -81,7 +85,7 @@ class UploadPostController: UIViewController {
 //            self.tabBarController?.selectedIndex = 0
             print("didTapDone()")//delegateに値が入ってるのでcontrollerDidFinishUploadingPost()を使うことができる
             //rightBarButtonItemが押された時にcontrollerDidFinishUploadingPostが発動する
-            self.delegate?.controllerDidFinishUploadingPost(self)
+            self.seni()
         }
     }
 //
@@ -110,7 +114,7 @@ class UploadPostController: UIViewController {
         photoImageView.layer.cornerRadius = 10
 
         view.addSubview(captionTextView)
-        captionTextView.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 5, paddingLeft: 5, paddingRight: 5, height: 80)
+        captionTextView.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 5, paddingLeft: 5, paddingRight: 5, height: 100)
 
         view.addSubview(characterCountLabel)
         characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor,paddingBottom: 0, paddingRight: 14)
