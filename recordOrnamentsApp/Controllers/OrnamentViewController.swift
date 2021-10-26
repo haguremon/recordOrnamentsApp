@@ -8,7 +8,7 @@
 import UIKit
 import SideMenu
 import FirebaseAuth
-import PhotosUI
+
 
 protocol OrnamentViewControllerDelegate: AnyObject {
     func userDate(user: User)
@@ -161,17 +161,7 @@ class OrnamentViewController: UIViewController {
         
         self.present(nav, animated: false, completion: nil)
         
-//        var configuration = PHPickerConfiguration()
-//        configuration.selectionLimit = 1
-//        configuration.selection = .default
-//        configuration.preferredAssetRepresentationMode = .automatic
-//
-//        configuration.filter = PHPickerFilter.images
-//
-//        let picker = PHPickerViewController(configuration: configuration)
-//        picker.delegate = self
-//        //navigationController?.pushViewController(picker, animated: true)
-//        present(picker, animated: true)
+
         
     }
     
@@ -189,51 +179,6 @@ class OrnamentViewController: UIViewController {
         
         
     }
-    
-}
-
-extension OrnamentViewController: PHPickerViewControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true, completion: nil)
-        guard let selectedImage = results.first?.itemProvider else { return }
-        selectedImage.canLoadObject(ofClass: UIImage.self)
-            selectedImage.loadObject(ofClass: UIImage.self) { image, error in
-
-                if let image = image as? UIImage {
-                    DispatchQueue.main.async {
-                        
-                        let controller = UploadPostController()
-                        //ここで遷移渡しをしてuserの情報やselectedImageをUploadPostControllerにあげる
-                        controller.selectedImage = image
-                        //ここですでにcontrollerDidFinishUploadingPost()を保持
-                        controller.delegate = self
-                       //投稿してユーザーの情報を　渡す
-                        controller.currentUser = self.user
-                        //UploadPostControllerはUINavigationを含むのでrootViewControllerにして入れた
-                        controller.modalPresentationStyle = .fullScreen
-                        picker.navigationController?.pushViewController(controller, animated: true)
-                        //self.present(controller, animated: true, completion: nil)
-//                        let nav = UINavigationController(rootViewController: controller)
-//                        print("UploadPostController")
-//                        nav.modalPresentationStyle = .fullScreen
-//                        self.navigationController?.pushViewController(nav, animated: true)
-                      //  self.present(nav, animated: false, completion: nil)
-
-                        
-                        
-                        
-                    }
-                   
-                
-                }
-            }
-           
-            
-            
-            
-    }
-    
-    
     
 }
 
