@@ -64,7 +64,7 @@ class UploadPostController: UIViewController {
     present(picker, animated: true)
         
     }
-    private lazy var nameTextView: InputTextView = {
+    private lazy var imagenameTextView: InputTextView = {
         let tv = InputTextView()
         tv.placeholderText = "名前を付ける"
         tv.font = UIFont.systemFont(ofSize: 16)
@@ -102,7 +102,9 @@ class UploadPostController: UIViewController {
 //
 //    // MARK: - Actions
     @objc func didTapCancel(){
-        dismiss(animated: true, completion: nil)
+        self.delegate?.controllerDidFinishUploadingPost(self)
+
+        //dismiss(animated: true, completion: nil)
     }
     
     func seni(){
@@ -121,14 +123,14 @@ class UploadPostController: UIViewController {
     }
 //
     @objc func didTapDone() {
-   
+        guard let imagename = imagenameTextView.text else { return }
         guard let image = selectedImage else { return }
         guard let caption = captionTextView.text else { return }
         guard let user = currentUser else { return }
         //ここでインジケーターが発動する
         showLoader(true)
 //
-        PostService.uploadPost(caption: caption, image: image, user: user) { (error) in
+        PostService.uploadPost(caption: caption, image: image, imagename: imagename, user: user) { (error) in
             //uploadできたらインジケーターが終わる
             self.showLoader(false)
             if let error = error {
@@ -136,7 +138,8 @@ class UploadPostController: UIViewController {
                 return
             }
             //ポストが成功した時の処理 tabバーもホームに移動したいのでプロトコルを使って委任する
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.controllerDidFinishUploadingPost(self)
+            //     self.dismiss(animated: true, completion: nil)
 //            self.tabBarController?.selectedIndex = 0
             print("didTapDone()")//delegateに値が入ってるのでcontrollerDidFinishUploadingPost()を使うことができる
             //rightBarButtonItemが押された時にcontrollerDidFinishUploadingPostが発動する
@@ -156,22 +159,22 @@ class UploadPostController: UIViewController {
     func configureUI(){
        
         view.backgroundColor = .systemBackground
-        nameTextView.layer.borderWidth = 1
-        nameTextView.layer.borderColor = UIColor.secondaryLabel.cgColor
+        imagenameTextView.layer.borderWidth = 1
+        imagenameTextView.layer.borderColor = UIColor.secondaryLabel.cgColor
         captionTextView.layer.borderWidth = 1
         captionTextView.layer.borderColor = UIColor.secondaryLabel.cgColor
         navigationItem.title = "保管"
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .done, target: self, action: #selector(didTapDone))
-        view.addSubview(nameTextView)
-        nameTextView.setDimensions(height: view.bounds.height / 11, width: view.bounds.width)
-        nameTextView.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 15)
-        nameTextView.centerX(inView: view)
+        view.addSubview(imagenameTextView)
+        imagenameTextView.setDimensions(height: view.bounds.height / 11, width: view.bounds.width)
+        imagenameTextView.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 15)
+        imagenameTextView.centerX(inView: view)
         
         view.addSubview(photoImageView)
         photoImageView.setDimensions(height: view.bounds.height / 3, width: view.bounds.width)
-        photoImageView.anchor(top: nameTextView.bottomAnchor, paddingTop: 8)
+        photoImageView.anchor(top: imagenameTextView.bottomAnchor, paddingTop: 8)
         photoImageView.centerX(inView: view)
         photoImageView.layer.cornerRadius = 10
 

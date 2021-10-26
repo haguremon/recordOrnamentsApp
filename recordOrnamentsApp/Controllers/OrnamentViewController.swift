@@ -187,6 +187,7 @@ extension OrnamentViewController: UploadPostControllerDelegate{
     func controllerDidFinishUploadingPost(_ controller: UploadPostController) {
         
         controller.dismiss(animated: true, completion: nil)
+        print("果たしてこれは意味があるのか？")
 
     }
     
