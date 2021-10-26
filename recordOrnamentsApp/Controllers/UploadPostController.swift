@@ -69,8 +69,10 @@ class UploadPostController: UIViewController {
         tv.placeholderText = "名前を付ける"
         tv.font = UIFont.systemFont(ofSize: 16)
         tv.textColor = .label
-        tv.delegate = self
+        //tv.delegate = self
         tv.placeholderShouldCenter = false
+        tv.returnKeyType = .next
+
         return tv
     }()
     private lazy var captionTextView: InputTextView = {
@@ -78,8 +80,9 @@ class UploadPostController: UIViewController {
         tv.placeholderText = "メモをする"
         tv.font = UIFont.systemFont(ofSize: 16)
         tv.textColor = .label
-        tv.delegate = self
+        //tv.delegate = self
         tv.placeholderShouldCenter = false
+        tv.returnKeyType = .done
         return tv
     }()
     
@@ -91,20 +94,23 @@ class UploadPostController: UIViewController {
         return label
     }()
     
+    
     //    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        print(currentUser?.name)
-        // view.backgroundColor = .orange
+        imagenameTextView.delegate = self
+        captionTextView.delegate = self
         
     }
-    //
-    //    // MARK: - Actions
+    
+    // MARK: - Actions
     @objc func didTapCancel(){
         self.delegate?.controllerDidFinishUploadingPost(self)
     }
-    @objc func didTapDone() {
+    private func uploadPost() {
+        imagenameTextView.resignFirstResponder()
+        captionTextView.resignFirstResponder()
         guard let imagename = imagenameTextView.text else { return }
         guard let image = selectedImage else { return }
         guard let caption = captionTextView.text else { return }
@@ -119,14 +125,18 @@ class UploadPostController: UIViewController {
                 print("DEBUG: Failed to upload post \(error.localizedDescription)")
                 return
             }
+            print("成功やで")
             //ポストが成功した時の処理 tabバーもホームに移動したいのでプロトコルを使って委任する
             self.delegate?.controllerDidFinishUploadingPost(self)
             //     self.dismiss(animated: true, completion: nil)
             //            self.tabBarController?.selectedIndex = 0
-            print("didTapDone()")//delegateに値が入ってるのでcontrollerDidFinishUploadingPost()を使うことができる
+        //delegateに値が入ってるのでcontrollerDidFinishUploadingPost()を使うことができる
             //rightBarButtonItemが押された時にcontrollerDidFinishUploadingPostが発動する
             // self.seni()
         }
+    }
+    @objc func didTapDone() {
+        uploadPost()
     }
     //
     //    // MARK: - Helpers
@@ -206,13 +216,41 @@ extension UploadPostController {
 
 // MARK: - UITextFieldDelegate
 //textViewの文字のカウントを認知することができる
-extension UploadPostController: UITextViewDelegate{
+extension UploadPostController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         checkMaxLength(textView)
         let count = textView.text.count
         characterCountLabel.text = "\(count)/300"
     }
+    //UITextFieldDelegateを使ってユーザーの入力を認知する
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == imagenameTextView {
+            //nameEmailTextFieldでリターンが押された時にpasswordTextFieldのキーボードを開く
+            imagenameTextView.resignFirstResponder()
+            captionTextView.becomeFirstResponder()
+        
+        } else if textField ==  captionTextView {
+            //textFieldが押されたらログインボタンが起動する
+            uploadPost()
+            
+        }
+        
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange,
+                        replacementText text: String) -> Bool {
+        if text == "\n" {
+            imagenameTextView.resignFirstResponder() //キーボードを閉じる
+            captionTextView.resignFirstResponder()
+            
+            return false
+        }
+        return true
+    }
 }
+
+
 extension UploadPostController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)

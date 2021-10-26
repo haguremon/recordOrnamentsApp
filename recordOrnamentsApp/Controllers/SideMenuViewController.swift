@@ -35,9 +35,9 @@ class SideMenuViewController: UIViewController {
     var user: User? {
 
         didSet {
-//            guard let user = user else {
-//                return
-//            }
+            guard let user = user else {
+                return
+            }
             
             configure(user: user)
             activityIndicatorView.hidesWhenStopped = true
@@ -80,10 +80,10 @@ class SideMenuViewController: UIViewController {
         activityIndicatorView.stopAnimating()
     }
 
-    private func configure(user: User?) {
+    private func configure(user: User) {
 
-        imageView.sd_setImage(with: URL(string: user!.profileImageUrl), completed: nil)
-        usernameLabel.text = user?.name
+        imageView.sd_setImage(with: URL(string: user.profileImageUrl), completed: nil)
+        usernameLabel.text = user.name
 
     }
 
