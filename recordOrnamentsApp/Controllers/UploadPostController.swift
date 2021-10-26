@@ -12,7 +12,7 @@ protocol UploadPostControllerDelegate: AnyObject {
     func controllerDidFinishUploadingPost(_ controller: UploadPostController)
 }
 //画面を選択したらここに移動して　メモ等をfirebaseに保存する
-class UploadPostController: UIViewController, UIGestureRecognizerDelegate {
+class UploadPostController: UIViewController {
 //
 //    // MARK: - Properties
     weak var delegate: UploadPostControllerDelegate?
@@ -32,7 +32,23 @@ class UploadPostController: UIViewController, UIGestureRecognizerDelegate {
         iv.isUserInteractionEnabled = true
         return iv
     }()
-    @objc func showUserProfile() {
+    
+    private lazy var addPhotoButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("写真を追加する", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        button.addTarget(self, action: #selector(addPhoto), for: .touchUpInside)
+        button.backgroundColor = .systemRed
+        button.tintColor = .white
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.cornerRadius = 10
+        button.layer.shadowRadius = 5
+        button.layer.shadowOpacity = 1.0
+        return button
+    }()
+
+    
+    @objc func addPhoto() {
         
         print("tapaaa")
         
@@ -128,7 +144,7 @@ class UploadPostController: UIViewController, UIGestureRecognizerDelegate {
 //
     func configureUI(){
        
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         nameTextView.layer.borderWidth = 1
         nameTextView.layer.borderColor = UIColor.secondaryLabel.cgColor
         captionTextView.layer.borderWidth = 1
@@ -153,10 +169,9 @@ class UploadPostController: UIViewController, UIGestureRecognizerDelegate {
 
         view.addSubview(characterCountLabel)
         characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor,paddingBottom: 0, paddingRight: 14)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(showUserProfile))
-        photoImageView.addGestureRecognizer(tap)
-        tap.delegate = self
-
+        view.addSubview(addPhotoButton)
+        //addPhotoButton.setDimensions(height: 55, width: 100)
+        addPhotoButton.anchor(top: captionTextView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 100, paddingRight: 100, height: 55)
     }
 }
 
