@@ -9,7 +9,6 @@ import UIKit
 import SideMenu
 import FirebaseAuth
 import PhotosUI
-import Photos
 
 protocol OrnamentViewControllerDelegate: AnyObject {
     func userDate(user: User)
@@ -146,16 +145,33 @@ class OrnamentViewController: UIViewController {
     }
     
     @objc private func didTapPostToButton() {
-        var configuration = PHPickerConfiguration(photoLibrary: .shared())
-        configuration.selectionLimit = 0
         
-        configuration.filter = .images
+        let controller = UploadPostController()
+        //ここで遷移渡しをしてuserの情報やselectedImageをUploadPostControllerにあげる
+        //controller.selectedImage = selectedImage
+        print("didFinishPickingMedia ここで1")
+        //ここですでにcontrollerDidFinishUploadingPost()を保持
+        controller.delegate = self
+       //投稿してユーザーの情報を　渡す
+        controller.currentUser = self.user
+        //UploadPostControllerはUINavigationを含むのでrootViewControllerにして入れた
+        let nav = UINavigationController(rootViewController: controller)
         
-        let picker = PHPickerViewController(configuration: configuration)
-        picker.delegate = self
-        picker.modalPresentationStyle = .fullScreen
-        //navigationController?.pushViewController(picker, animated: true)
-        present(picker, animated: true)
+        nav.modalPresentationStyle = .fullScreen
+        
+        self.present(nav, animated: false, completion: nil)
+        
+//        var configuration = PHPickerConfiguration()
+//        configuration.selectionLimit = 1
+//        configuration.selection = .default
+//        configuration.preferredAssetRepresentationMode = .automatic
+//
+//        configuration.filter = PHPickerFilter.images
+//
+//        let picker = PHPickerViewController(configuration: configuration)
+//        picker.delegate = self
+//        //navigationController?.pushViewController(picker, animated: true)
+//        present(picker, animated: true)
         
     }
     
@@ -178,29 +194,24 @@ class OrnamentViewController: UIViewController {
 
 extension OrnamentViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated:  true)
-            
-            guard let selectedImage = results.first?.itemProvider else { return }
-            selectedImage.canLoadObject(ofClass: UIImage.self)
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = results.first?.itemProvider else { return }
+        selectedImage.canLoadObject(ofClass: UIImage.self)
             selectedImage.loadObject(ofClass: UIImage.self) { image, error in
-                guard error == nil else {
-                    print("error: \(error?.localizedDescription)")
-                    return
-                }
 
-                if let image = image {
+                if let image = image as? UIImage {
                     DispatchQueue.main.async {
                         
                         let controller = UploadPostController()
                         //ここで遷移渡しをしてuserの情報やselectedImageをUploadPostControllerにあげる
-                        controller.selectedImage = image as? UIImage
+                        controller.selectedImage = image
                         //ここですでにcontrollerDidFinishUploadingPost()を保持
                         controller.delegate = self
                        //投稿してユーザーの情報を　渡す
                         controller.currentUser = self.user
                         //UploadPostControllerはUINavigationを含むのでrootViewControllerにして入れた
                         controller.modalPresentationStyle = .fullScreen
-                        self.navigationController?.pushViewController(controller, animated: true)
+                        picker.navigationController?.pushViewController(controller, animated: true)
                         //self.present(controller, animated: true, completion: nil)
 //                        let nav = UINavigationController(rootViewController: controller)
 //                        print("UploadPostController")
@@ -267,29 +278,12 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
-        
-        switch indexPath.row {
-        case 0:
-            cell.layer.cornerRadius = 75
-            cell.backgroundColor = .darkGray
-            cell.layer.shadowRadius = 1
-            cell.layer.shadowOpacity = 1
-            cell.bounds.size.height = 150
-            cell.bounds.size.width = 150
-            cell.imagenameLabel.tintColor = .offWhiteOrBlack
-            cell.imagenameLabel.backgroundColor = .darkGray
-            cell.setup(image: UIImage(systemName: "plus"), imagename: nil)
-            return cell
-        default:
             cell.layer.cornerRadius = 20
             cell.backgroundColor = .darkGray
             cell.imagenameLabel.tintColor = .secondaryLabel
             cell.imagenameLabel.backgroundColor = .systemGray
-            cell.setup(image: UIImage(systemName: imagename[indexPath.row - 1]), imagename: "name")
+            cell.setup(image: UIImage(systemName: imagename[indexPath.row]), imagename: "name")
             return cell
-        }
-        
-        
         
     }
     

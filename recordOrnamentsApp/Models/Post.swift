@@ -11,6 +11,7 @@ import Firebase
 struct Post {
     var caption: String
     let imageUrl: String
+    let imagename: String
     let ownerUid: String
     let timestamp: Timestamp
     let postId: String
@@ -24,6 +25,7 @@ struct Post {
     init(postId: String, dictonary: [String: Any]) {
         self.caption = dictonary["caption"] as? String ?? ""
         self.imageUrl = dictonary["imageUrl"] as? String ?? ""
+        self.imagename = dictonary["imagename"] as? String ?? ""
         self.ownerUid = dictonary["ownerUid"] as? String ?? ""
         self.timestamp = dictonary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
         self.postId = postId
