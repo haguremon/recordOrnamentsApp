@@ -12,7 +12,7 @@ struct AuthCredentials {
     let email: String
     let password: String
     let name: String
-    let profileImage: UIImage
+    let profileImage: UIImage?
 }
 
 struct  AuthService {

@@ -45,8 +45,6 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 10
         loginButton.layer.shadowRadius = 5
         loginButton.layer.shadowOpacity = 1.0
-        //registerButton.layer.cornerRadius = 10 //角を丸く
-       // registerButton.backgroundColor = UIColor.rgb(red: 180, green: 255, blue: 221)
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -69,7 +67,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        
+        handleLogin()
         
         
     }
@@ -82,6 +80,10 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
+            let ornamentViewController = self.storyboard?.instantiateViewController(identifier: "OrnamentViewController") as! OrnamentViewController
+            let navVC = UINavigationController(rootViewController: ornamentViewController)
+            navVC.modalPresentationStyle = .fullScreen
+       self.present(navVC, animated: true, completion: nil)
         }
         
     }
@@ -97,7 +99,18 @@ class LoginViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+    @IBAction func goSignupPage(_ sender: UIButton) {
+       
+        presentToRegistrationViewController()
+    }
     
+    
+    
+    private func presentToRegistrationViewController() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "NewRegistrationViewController") as! NewRegistrationViewController
+        present(vc, animated: true, completion: nil)
+        
+    }
     
     private func presentToOrnamentViewController() {
         

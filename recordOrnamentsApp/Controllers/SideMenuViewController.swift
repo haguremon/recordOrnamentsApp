@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SDWebImage
+import FirebaseAuth
 protocol SideMenuViewControllerDelegate: AnyObject {
     func didSelectMeunItem(name: SideMenuItem)
 }
@@ -26,12 +28,18 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     
-//    var authCredentials: AuthCredentials? {
-//
-//        didSet { configure() }
-//
-//
-//    }
+    var user: User? {
+
+        didSet {
+            guard let user = user else {
+                return
+            }
+            print(user.name)
+            configure(user: user)
+        }
+
+
+    }
     
     weak var delegate: SideMenuViewControllerDelegate?
     
@@ -41,15 +49,30 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        //imageView.layer.cornerRadius = 25
+        tableView.isScrollEnabled = false
+        tableView.scrollsToTop = false
+        imageView.layer.cornerRadius = 20
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchUser()
+    }
+    private func fetchUser() {
+        //コールバックを使ってProfileControllerのプロパティに代入する
+        UserService.fetchUser { user in
+            self.user = user
     
+        }
+
     }
     
-//    private func configure() {
-//        imageView.image = authCredentials?.profileImage
-//        usernameLabel.text = authCredentials?.name
-//
-//    }
+
+    private func configure(user: User) {
+
+        imageView.sd_setImage(with: URL(string: user.profileImageUrl), completed: nil)
+        usernameLabel.text = user.name
+
+    }
 
     /*
     // MARK: - Navigation
@@ -86,7 +109,6 @@ extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
         //ここでの通知をViewControllernに伝えてその内容をViewControllerでやる
         delegate?.didSelectMeunItem(name: selectItem)
         
-        //performSegue(withIdentifier: "\(selectItem)", sender: nil)
         print("tap")
     }
 

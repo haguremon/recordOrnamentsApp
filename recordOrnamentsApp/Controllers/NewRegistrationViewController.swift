@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class NewRegistrationsViewController: UIViewController {
+class NewRegistrationViewController: UIViewController {
     @IBOutlet private var animationView: UIView!
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -49,7 +49,7 @@ class NewRegistrationsViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty ,
               let password = passwordTextField.text, password.count > 7 ,
               let name = userNameTextField.text, !name.isEmpty else { return }
-        let authCredential = AuthCredentials(email: email, password: password, name: name, profileImage: selectedImage!)
+        let authCredential = AuthCredentials(email: email, password: password, name: name, profileImage: selectedImage)
         print("handleAuthToFirebase: \(authCredential)")
         AuthService.registerUser(withCredential: authCredential) { (error) in
             if let error = error {
@@ -58,17 +58,11 @@ class NewRegistrationsViewController: UIViewController {
                 return
             }
 
-           // self.dismiss(animated: true, completion: nil)
             let ornamentViewController = self.storyboard?.instantiateViewController(identifier: "OrnamentViewController") as! OrnamentViewController
-            ornamentViewController.authCredentials = authCredential
-            self.navigationController?.pushViewController(ornamentViewController, animated: true)
-
-       // self.present(ornamentViewController, animated: true, completion: nil)
+            let navVC = UINavigationController(rootViewController: ornamentViewController)
+            navVC.modalPresentationStyle = .fullScreen
+       self.present(navVC, animated: true, completion: nil)
         }
-//        ornamentViewController.modalPresentationStyle = .fullScreen
-//        let naornamentViewController = UINavigationController(rootViewController: ornamentViewController)
-//        self.navigationController.pop
-//        self.navigationController?.pushViewController(naornamentViewController, animated: true)
         print("成功")
         
     }
@@ -85,7 +79,7 @@ class NewRegistrationsViewController: UIViewController {
         passwordTextField.textContentType = .newPassword
         passwordTextField.isSecureTextEntry = true
         
-        emailTextField.keyboardType = .emailAddress
+        emailTextField.keyboardType = .default
         userNameTextField.keyboardType = .namePhonePad
         
         registerButton.isEnabled = false
@@ -121,7 +115,7 @@ class NewRegistrationsViewController: UIViewController {
 }
 
 //  MARK: -UIImagePickerControllerDelegate
-extension NewRegistrationsViewController :UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension NewRegistrationViewController :UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             guard let selectedImage = info[.editedImage] as? UIImage else { return }
         
@@ -139,7 +133,7 @@ extension NewRegistrationsViewController :UIImagePickerControllerDelegate, UINav
 
     
 }
-extension NewRegistrationsViewController :UITextFieldDelegate { //可読性の向上ｗ
+extension NewRegistrationViewController :UITextFieldDelegate { //可読性の向上ｗ
    
     func textFieldDidChangeSelection(_ textField: UITextField) {
        let emailIsEmpty = emailTextField.text?.isEmpty ?? true

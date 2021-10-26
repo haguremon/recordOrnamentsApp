@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
+        skipLogin()
 //                let window = UIWindow(windowScene: scene as! UIWindowScene)
 //                self.window = window
 //                window.makeKeyAndVisible()
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //                window.rootViewController = navornamentViewController
         guard let _ = (scene as? UIWindowScene) else { return }
         if Auth.auth().currentUser != nil {
-            skipLogin()
+            //skipLogin()
         }
     }
     func skipLogin() {
@@ -36,11 +36,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         //ログイン後に飛びたいストーリボード。Identifier は Main.storyboard で設定。
         let ornamentViewController = storyboard.instantiateViewController(identifier: "OrnamentViewController")
-
+        let navVC = UINavigationController(rootViewController: ornamentViewController)
         //rootViewController (初期画面）を homeViewController にする。
-       let navornamentViewController = UINavigationController(rootViewController: ornamentViewController)
         //window?.rootViewController = ornamentViewController
-        window?.rootViewController =  navornamentViewController
+        window?.rootViewController =  navVC
         //画面を表示。
         window?.makeKeyAndVisible()
     }

@@ -16,7 +16,7 @@
 		CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
 		CF36A0BE26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
 		CF4706E82706A06400F7B941 /*  HeaderCollectionReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4706E72706A06400F7B941 /*  HeaderCollectionReusable.swift */; };
-		CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */; };
+		CF49DEA226E344EC008707C2 /* NewRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49DEA126E344EC008707C2 /* NewRegistrationViewController.swift */; };
 		CF4CE57B26FDA8E500BD78CA /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */; };
 		CF4CE5802700446400BD78CA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */; };
 		CF4CE5812700446400BD78CA /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */; };
@@ -24,6 +24,11 @@
 		CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE326E89F3300150D9F /* IconViewController.swift */; };
 		CF96065726FD7E2600E4D2BF /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = CF96065626FD7E2600E4D2BF /* SideMenu */; };
 		CF96065926FD7E8200E4D2BF /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */; };
+		CF9C81F02727BB3A00C8FB5E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CF9C81EF2727BB3A00C8FB5E /* SDWebImage */; };
+		CF9C81F22727DDF900C8FB5E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C81F12727DDF900C8FB5E /* Post.swift */; };
+		CF9C82142727E7E200C8FB5E /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82132727E7E200C8FB5E /* UploadPostController.swift */; };
+		CF9C82162727E81100C8FB5E /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82152727E81100C8FB5E /* InputTextView.swift */; };
+		CF9C82182727E87000C8FB5E /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82172727E87000C8FB5E /* PostService.swift */; };
 		CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */; };
 		CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */; };
 		CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */; };
@@ -39,7 +44,7 @@
 		CFC22DB12723CE5C0016F688 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB02723CE5C0016F688 /* ImageUploader.swift */; };
 		CFC22DB42723DDA60016F688 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = CFC22DB32723DDA60016F688 /* JGProgressHUD */; };
 		CFC22DB72723DDE40016F688 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB62723DDE40016F688 /* Extensions.swift */; };
-		CFC22DB92723EF620016F688 /* OrnamentNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB82723EF620016F688 /* OrnamentNavigationViewController.swift */; };
+		CFC22E2C2727B5C00016F688 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22E2B2727B5BF0016F688 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,13 +78,17 @@
 		CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnamentViewController.swift; sourceTree = "<group>"; };
 		CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		CF4706E72706A06400F7B941 /*  HeaderCollectionReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HeaderCollectionReusable.swift"; sourceTree = "<group>"; };
-		CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationsViewController.swift; sourceTree = "<group>"; };
+		CF49DEA126E344EC008707C2 /* NewRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationViewController.swift; sourceTree = "<group>"; };
 		CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CF91FBE126E894C500150D9F /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		CF91FBE326E89F3300150D9F /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
 		CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		CF9C81F12727DDF900C8FB5E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CF9C82132727E7E200C8FB5E /* UploadPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
+		CF9C82152727E81100C8FB5E /* InputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
+		CF9C82172727E87000C8FB5E /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordOrnamentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,8 +109,8 @@
 		CFC22DAE2723CD5C0016F688 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFC22DB02723CE5C0016F688 /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		CFC22DB62723DDE40016F688 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		CFC22DB82723EF620016F688 /* OrnamentNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrnamentNavigationViewController.swift; sourceTree = "<group>"; };
 		CFC22DBB272445730016F688 /* recordOrnamentsApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = recordOrnamentsApp.entitlements; sourceTree = "<group>"; };
+		CFC22E2B2727B5BF0016F688 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +122,7 @@
 				CF96065726FD7E2600E4D2BF /* SideMenu in Frameworks */,
 				CF2891C72702BDAA00FEC85A /* Lottie in Frameworks */,
 				B7AB6C5AFB76F00E1D1606EB /* Pods_recordOrnamentsApp.framework in Frameworks */,
+				CF9C81F02727BB3A00C8FB5E /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,14 +171,14 @@
 		CF49DEA326E344FC008707C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF9C82132727E7E200C8FB5E /* UploadPostController.swift */,
 				CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */,
-				CF49DEA126E344EC008707C2 /* NewRegistrationsViewController.swift */,
+				CF49DEA126E344EC008707C2 /* NewRegistrationViewController.swift */,
 				CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */,
 				CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */,
 				CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */,
 				CF91FBE126E894C500150D9F /* DescriptionViewController.swift */,
 				CF91FBE326E89F3300150D9F /* IconViewController.swift */,
-				CFC22DB82723EF620016F688 /* OrnamentNavigationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +233,7 @@
 				CFB3BBC126E2096600EB2B1A /* Info.plist */,
 				CFC22DAD2723CD180016F688 /* Utils */,
 				CFC22DA72723CB580016F688 /* Resources */,
+				CFC22E2A2727B5AB0016F688 /* Models */,
 				CF4CE57926FDA8D300BD78CA /* Views */,
 				CF49DEA326E344FC008707C2 /* Controllers */,
 				CFB3BBBC26E2096600EB2B1A /* Assets.xcassets */,
@@ -255,6 +266,7 @@
 				CFC22DA32723BDFD0016F688 /* UserSerivice.swift */,
 				CFC22DAB2723CC410016F688 /* AuthService.swift */,
 				CFC22DB02723CE5C0016F688 /* ImageUploader.swift */,
+				CF9C82172727E87000C8FB5E /* PostService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -281,10 +293,20 @@
 		CFC22DAD2723CD180016F688 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CF9C82152727E81100C8FB5E /* InputTextView.swift */,
 				CFC22DAE2723CD5C0016F688 /* Constants.swift */,
 				CFC22DB62723DDE40016F688 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CFC22E2A2727B5AB0016F688 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CFC22E2B2727B5BF0016F688 /* User.swift */,
+				CF9C81F12727DDF900C8FB5E /* Post.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +331,7 @@
 				CF96065626FD7E2600E4D2BF /* SideMenu */,
 				CF2891C62702BDAA00FEC85A /* Lottie */,
 				CFC22DB32723DDA60016F688 /* JGProgressHUD */,
+				CF9C81EF2727BB3A00C8FB5E /* SDWebImage */,
 			);
 			productName = recordOrnamentsApp;
 			productReference = CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */;
@@ -388,6 +411,7 @@
 				CF96065526FD7E2600E4D2BF /* XCRemoteSwiftPackageReference "SideMenu" */,
 				CF2891C52702BDAA00FEC85A /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				CFC22DB22723DDA60016F688 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				CF9C81EE2727BB3A00C8FB5E /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = CFB3BBB126E2096200EB2B1A /* Products */;
 			projectDirPath = "";
@@ -538,10 +562,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF9C82162727E81100C8FB5E /* InputTextView.swift in Sources */,
 				CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */,
 				CFC22DAF2723CD5C0016F688 /* Constants.swift in Sources */,
 				CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */,
 				CF36A0BB26E5E0CC00ADD2DA /* OrnamentViewController.swift in Sources */,
+				CF9C82182727E87000C8FB5E /* PostService.swift in Sources */,
 				CFC22DA42723BDFD0016F688 /* UserSerivice.swift in Sources */,
 				CFC22DB12723CE5C0016F688 /* ImageUploader.swift in Sources */,
 				CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */,
@@ -550,10 +576,12 @@
 				CF4CE57B26FDA8E500BD78CA /* CollectionViewLayout.swift in Sources */,
 				CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */,
 				CF4CE5802700446400BD78CA /* CollectionViewCell.swift in Sources */,
-				CFC22DB92723EF620016F688 /* OrnamentNavigationViewController.swift in Sources */,
+				CF9C82142727E7E200C8FB5E /* UploadPostController.swift in Sources */,
 				CF4706E82706A06400F7B941 /*  HeaderCollectionReusable.swift in Sources */,
-				CF49DEA226E344EC008707C2 /* NewRegistrationsViewController.swift in Sources */,
+				CF49DEA226E344EC008707C2 /* NewRegistrationViewController.swift in Sources */,
+				CFC22E2C2727B5C00016F688 /* User.swift in Sources */,
 				CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */,
+				CF9C81F22727DDF900C8FB5E /* Post.swift in Sources */,
 				CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */,
 				CFC22DAC2723CC410016F688 /* AuthService.swift in Sources */,
 			);
@@ -917,6 +945,14 @@
 				kind = branch;
 			};
 		};
+		CF9C81EE2727BB3A00C8FB5E /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		CFC22DB22723DDA60016F688 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
@@ -937,6 +973,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CF96065526FD7E2600E4D2BF /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		CF9C81EF2727BB3A00C8FB5E /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF9C81EE2727BB3A00C8FB5E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 		CFC22DB32723DDA60016F688 /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -11,12 +11,15 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var imagenameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
-    func setup(image: UIImage?){
+    func setup(image: UIImage?,imagename: String?){
         imageView.image = image
+        imagenameLabel?.text = imagename
+        
         // UICollectionViewのcontentViewプロパティには罫線と角丸に関する設定を行う
         self.contentView.layer.masksToBounds = true
         self.contentView.layer.cornerRadius = 10.0

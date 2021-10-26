@@ -6,8 +6,19 @@
 //
 
 import Foundation
+import FirebaseAuth
 
-struct UserSerivice {
+struct UserService {
     
-    
+    static func fetchUser(completion: @escaping (User) -> Void) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+            guard let dictonary = snapshot?.data() else { return }
+            let user = User(dictonary: dictonary)
+            completion(user)
+            
+        }
+    }
 }

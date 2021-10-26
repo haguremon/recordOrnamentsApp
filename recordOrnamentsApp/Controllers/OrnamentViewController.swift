@@ -8,10 +8,29 @@
 import UIKit
 import SideMenu
 import FirebaseAuth
+import PhotosUI
+protocol OrnamentViewControllerDelegate: AnyObject {
+    func userDate(user: User)
+}
 
-class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
+
+class OrnamentViewController: UIViewController {
+        
+    var user: User? {
+        didSet {
+            guard let user = user else { return }
+            print("デバッグ:", user.name)
+        }
+    }
+    private var posts = [Post]() {
+        didSet{ collectionView.reloadData() }
+    }
     
-    var authCredentials: AuthCredentials?
+    var post: Post?{
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     @IBOutlet private var collectionView: UICollectionView!
     private let searchController = UISearchController(searchResultsController: nil)
@@ -25,52 +44,21 @@ class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
         view.backgroundColor = UIColor(white: 0, alpha: 0.3)
         return view
     }()
-    
-    func didSelectMeunItem(name: SideMenuItem) {
-        menu?.dismiss(animated: true, completion:nil)
-        //閉じた時に移動する
-        
-        switch name {
-            
-        case .useGuide:
-            print("useGuide")
-            //present(createViewController()!, animated: true, completion: nil)
-        case .signOut:
-            print("log out")
-            do {
-                
-                try Auth.auth().signOut()
-                
-                presentToViewController()
-                
-                
-            } catch  {
-                print(error,"ログアウトに失敗sました")
-            }
-            
-        case .contact:
-            print("aaaaaaaaa")
-            view.backgroundColor = .green
-        }
-    }
-    
-    
-    
     var menu: SideMenuNavigationController?
     let collectionViewLayout = CollectionViewLayout()
-    var color: UIColor? = .darkGray
+    
+    weak var delegate: OrnamentViewControllerDelegate?
+    
     let imagename = ["square.and.arrow.up","paperplane","paperplane","paperplane","paperplane","arrow.down.to.line","gear","magnifyingglass","clock","square.and.arrow.up","paperplane","arrow.down.to.line","gear","magnifyingglass","clock"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfUserIsLoggedIn()
-        //guard let authCredential = self.authCredentials else { return }
-       // print("\(authCredential.name)")
+        configureNavigationBar()
         print("hello")
-        navigationController?.navigationController?.title = "置物"
+        navigationController?.navigationBar.isTranslucent = true
         //navigationController?.title = "置物"
-        configurenavigationController()
         collectionView.backgroundColor = .systemBackground
         view.backgroundColor = .systemBackground
         configureSearchController()
@@ -81,9 +69,11 @@ class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
         
     }
     private func setupSideMenu() {
-        weak var sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
+        let sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
         sideMenuViewController?.delegate = self
+        //sideMenuViewController?.user = self.user
         menu = SideMenuNavigationController(rootViewController: sideMenuViewController!)
+        
         menu?.leftSide = true
         menu?.settings = makeSettings()
         SideMenuManager.default.leftMenuNavigationController = menu
@@ -97,36 +87,30 @@ class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
             
             
             DispatchQueue.main.async {
-                self.checkIfUserIsLoggedIn()
+                self.presentToViewController()
             }
             
             
             
         }
     }
+    private func fetchUser(){
+        //コールバックを使ってProfileControllerのプロパティに代入する
+        UserService.fetchUser { user in
+            self.user = user
+    
+        }
+
+    }
+    
+
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            fetchUser()
     
     
-    
-    //    override func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    //        //checkIfUserIsLoggedIn()
-    //    }
-    //
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //        DispatchQueue.main.async {
-    //            self.checkIfUserIsLoggedIn()
-    //        }
-    //
-    //
-    //    }
-    
-    
-    //override func viewDidAppear(_ animated: Bool) {
-    //        super.viewDidAppear(animated)
-    //      //  checkIfUserIsLoggedIn()
-    //    }
-    
+        }
     
     //loginSegue
     private func presentToViewController() {
@@ -135,22 +119,10 @@ class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
         let loginViewController = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         loginViewController.modalPresentationStyle = .fullScreen
         present(loginViewController, animated: false, completion: nil)
-        //        let navController = UINavigationController(rootViewController: loginViewController)
-        //        navController.modalPresentationStyle = .fullScreen
-        //        navController.navigationBar.isHidden = true
-        //        DispatchQueue.main.async {
-        //
-        //            self.present(navController, animated: false, completion: nil)
-        //
-        //        }
         
     }
-    func configurenavigationController() {
-        navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.isTranslucent = true
-    }
     
-    func configureSearchController(){
+   private func configureSearchController(){
         // searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
@@ -159,14 +131,34 @@ class OrnamentViewController: UIViewController, SideMenuViewControllerDelegate {
         navigationItem.searchController = searchController
         definesPresentationContext = false
     }
-    
-    
-    
-    @IBAction func createSideMenuButton(_ sender: Any) {
+    private func configureNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(didTapPostToButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sidebar.left"),
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(createSideMenuButton))
         
-        present(menu!, animated: true, completion: nil)
+    }
+    
+    @objc private func didTapPostToButton() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        
+
         
         
+        
+    }
+    
+
+    @objc func createSideMenuButton(_ sender: Any) {
+
+    present(menu!, animated: true, completion: nil)
+        
+  
         
     }
     
@@ -216,12 +208,16 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
             cell.layer.shadowOpacity = 1
             cell.bounds.size.height = 150
             cell.bounds.size.width = 150
-            cell.setup(image: UIImage(systemName: "plus"))
+            cell.imagenameLabel.tintColor = .offWhiteOrBlack
+            cell.imagenameLabel.backgroundColor = .darkGray
+            cell.setup(image: UIImage(systemName: "plus"), imagename: nil)
             return cell
         default:
             cell.layer.cornerRadius = 20
             cell.backgroundColor = .darkGray
-            cell.setup(image: UIImage(systemName: imagename[indexPath.row - 1]))
+            cell.imagenameLabel.tintColor = .secondaryLabel
+            cell.imagenameLabel.backgroundColor = .systemGray
+            cell.setup(image: UIImage(systemName: imagename[indexPath.row - 1]), imagename: "name")
             return cell
         }
         
@@ -306,6 +302,38 @@ extension OrnamentViewController: SideMenuNavigationControllerDelegate {
     }
     
     
+    
+}
+//MARK: - SideMenuViewControllerDelegate
+
+
+extension OrnamentViewController: SideMenuViewControllerDelegate {
+    func didSelectMeunItem(name: SideMenuItem) {
+        menu?.dismiss(animated: true, completion:nil)
+        //閉じた時に移動する
+        
+        switch name {
+            
+        case .useGuide:
+            print("useGuide")
+            //present(createViewController()!, animated: true, completion: nil)
+        case .signOut:
+            print("log out")
+            do {
+                
+                try Auth.auth().signOut()
+                
+                presentToViewController()
+                
+                
+            } catch  {
+                print(error,"ログアウトに失敗sました")
+            }
+            
+        case .contact:
+            view.backgroundColor = .green
+        }
+    }
     
 }
 //extension OrnamentViewController: UISearchBarDelegate {
