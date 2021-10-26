@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        skipLogin()
+        //skipLogin()
 //                let window = UIWindow(windowScene: scene as! UIWindowScene)
 //                self.window = window
 //                window.makeKeyAndVisible()
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //                window.rootViewController = navornamentViewController
         guard let _ = (scene as? UIWindowScene) else { return }
         if Auth.auth().currentUser != nil {
-            //skipLogin()
+            skipLogin()
         }
     }
     func skipLogin() {

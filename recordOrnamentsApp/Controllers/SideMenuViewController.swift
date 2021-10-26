@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import FirebaseAuth
+
 protocol SideMenuViewControllerDelegate: AnyObject {
     func didSelectMeunItem(name: SideMenuItem)
 }
@@ -28,14 +29,19 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    
     var user: User? {
 
         didSet {
-            guard let user = user else {
-                return
-            }
-            print(user.name)
+//            guard let user = user else {
+//                return
+//            }
+            
             configure(user: user)
+            activityIndicatorView.hidesWhenStopped = true
+
         }
 
 
@@ -47,30 +53,37 @@ class SideMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
+        imageView.layer.cornerRadius = 40
+        imageView.layer.borderWidth = 0.8
+        imageView.layer.borderColor = UIColor.offBlackOrWhite.cgColor
+        activityIndicatorView.hidesWhenStopped = false
+        activityIndicatorView.style = .large
+
+    }
+    func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.isScrollEnabled = false
         tableView.scrollsToTop = false
-        imageView.layer.cornerRadius = 20
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        activityIndicatorView.startAnimating()
         fetchUser()
     }
     private func fetchUser() {
         //コールバックを使ってProfileControllerのプロパティに代入する
         UserService.fetchUser { user in
             self.user = user
-    
         }
-
+        activityIndicatorView.stopAnimating()
     }
-    
 
-    private func configure(user: User) {
+    private func configure(user: User?) {
 
-        imageView.sd_setImage(with: URL(string: user.profileImageUrl), completed: nil)
-        usernameLabel.text = user.name
+        imageView.sd_setImage(with: URL(string: user!.profileImageUrl), completed: nil)
+        usernameLabel.text = user?.name
 
     }
 

@@ -27,6 +27,11 @@ class LoginViewController: UIViewController {
         movingBackground()
       
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showLoader(false)
+    }
         
     @IBAction func descriptionScreenButton(_ sender: UIButton) {
         

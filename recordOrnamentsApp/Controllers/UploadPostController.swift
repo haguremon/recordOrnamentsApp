@@ -14,17 +14,17 @@ protocol UploadPostControllerDelegate: AnyObject {
 }
 //画面を選択したらここに移動して　メモ等をfirebaseに保存する
 class UploadPostController: UIViewController {
-//
-//    // MARK: - Properties
+    //
+    //    // MARK: - Properties
     weak var delegate: UploadPostControllerDelegate?
     var currentUser: User?
-//
-//
+    //
+    //
     var selectedImage: UIImage? {
         didSet{ photoImageView.image = selectedImage }
     }
-//
-//
+    //
+    //
     private let photoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -47,21 +47,21 @@ class UploadPostController: UIViewController {
         button.layer.shadowOpacity = 1.0
         return button
     }()
-
+    
     
     @objc func addPhoto() {
         
-    var configuration = PHPickerConfiguration()
-    configuration.selectionLimit = 1
-    configuration.selection = .default
-    configuration.preferredAssetRepresentationMode = .automatic
-
-    configuration.filter = PHPickerFilter.images
-
-    let picker = PHPickerViewController(configuration: configuration)
-    picker.delegate = self
-    //navigationController?.pushViewController(picker, animated: true)
-    present(picker, animated: true)
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.selection = .default
+        configuration.preferredAssetRepresentationMode = .automatic
+        
+        configuration.filter = PHPickerFilter.images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        //navigationController?.pushViewController(picker, animated: true)
+        present(picker, animated: true)
         
     }
     private lazy var imagenameTextView: InputTextView = {
@@ -82,7 +82,7 @@ class UploadPostController: UIViewController {
         tv.placeholderShouldCenter = false
         return tv
     }()
-
+    
     private let characterCountLabel: UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
@@ -90,38 +90,20 @@ class UploadPostController: UIViewController {
         label.text = "0/500"
         return label
     }()
-
-//    // MARK: - Lifecycle
+    
+    //    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         print(currentUser?.name)
-       // view.backgroundColor = .orange
+        // view.backgroundColor = .orange
         
     }
-//
-//    // MARK: - Actions
+    //
+    //    // MARK: - Actions
     @objc func didTapCancel(){
         self.delegate?.controllerDidFinishUploadingPost(self)
-
-        //dismiss(animated: true, completion: nil)
     }
-    
-    func seni(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        //ログイン後に飛びたいストーリボード。Identifier は Main.storyboard で設定。
-        let ornamentViewController = storyboard.instantiateViewController(identifier: "OrnamentViewController") as! OrnamentViewController
-        //ornamentViewController.modalPresentationStyle = .fullScreen
-        
-        //navigationController?.pushViewController(ornamentViewController, animated: true)
-        let navVC = UINavigationController(rootViewController: ornamentViewController)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true, completion: nil)
-//        navVC.modalPresentationStyle = .fullScreen
-        
-    }
-//
     @objc func didTapDone() {
         guard let imagename = imagenameTextView.text else { return }
         guard let image = selectedImage else { return }
@@ -129,7 +111,7 @@ class UploadPostController: UIViewController {
         guard let user = currentUser else { return }
         //ここでインジケーターが発動する
         showLoader(true)
-//
+        //
         PostService.uploadPost(caption: caption, image: image, imagename: imagename, user: user) { (error) in
             //uploadできたらインジケーターが終わる
             self.showLoader(false)
@@ -140,24 +122,24 @@ class UploadPostController: UIViewController {
             //ポストが成功した時の処理 tabバーもホームに移動したいのでプロトコルを使って委任する
             self.delegate?.controllerDidFinishUploadingPost(self)
             //     self.dismiss(animated: true, completion: nil)
-//            self.tabBarController?.selectedIndex = 0
+            //            self.tabBarController?.selectedIndex = 0
             print("didTapDone()")//delegateに値が入ってるのでcontrollerDidFinishUploadingPost()を使うことができる
             //rightBarButtonItemが押された時にcontrollerDidFinishUploadingPostが発動する
-           // self.seni()
+            // self.seni()
         }
     }
-//
-//    // MARK: - Helpers
+    //
+    //    // MARK: - Helpers
     func checkMaxLength(_ textView: UITextView){
-       //のカウントを超える場合は
+        //のカウントを超える場合は
         if (textView.text.count) > 500 {
             //UITextViewに入力できないくなる
             textView.deleteBackward()
         }
     }
-//
+    //
     func configureUI(){
-       
+        
         view.backgroundColor = .systemBackground
         imagenameTextView.layer.borderWidth = 1
         imagenameTextView.layer.borderColor = UIColor.secondaryLabel.cgColor
@@ -177,17 +159,49 @@ class UploadPostController: UIViewController {
         photoImageView.anchor(top: imagenameTextView.bottomAnchor, paddingTop: 8)
         photoImageView.centerX(inView: view)
         photoImageView.layer.cornerRadius = 10
-
-        view.addSubview(captionTextView)
-        captionTextView.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 5, paddingLeft: 5, paddingRight: 5, height: 100)
-
-        view.addSubview(characterCountLabel)
-        characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor,paddingBottom: 0, paddingRight: 14)
+        
         view.addSubview(addPhotoButton)
         //addPhotoButton.setDimensions(height: 55, width: 100)
-        addPhotoButton.anchor(top: captionTextView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 100, paddingRight: 100, height: 55)
+        addPhotoButton.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 15, paddingLeft: 100, paddingRight: 100, height: 55)
+        
+        view.addSubview(captionTextView)
+        captionTextView.anchor(top: addPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 5, paddingRight: 5, height: 100)
+        
+        view.addSubview(characterCountLabel)
+        characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: view.rightAnchor,paddingBottom: 0, paddingRight: 14)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hidekeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
 }
+extension UploadPostController {
+    
+    // キーボードが表示された時
+    @objc private func keyboardWillShow(sender: NSNotification) {
+        if captionTextView.isFirstResponder {
+            guard let userInfo = sender.userInfo else { return }
+            let duration: Float = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).floatValue
+            UIView.animate(withDuration: TimeInterval(duration), animations: { () -> Void in
+                let transform = CGAffineTransform(translationX: 0, y: -150)
+                self.view.transform = transform
+            })
+        }
+    }
+    
+    @objc func hidekeyboard(){
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+            self.view.transform = .identity
+        })
+    }
+    //画面をタップした時にキーボードを閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+}
+
 
 
 // MARK: - UITextFieldDelegate
@@ -204,34 +218,23 @@ extension UploadPostController: PHPickerViewControllerDelegate {
         picker.dismiss(animated: true, completion: nil)
         guard let selectedImage = results.first?.itemProvider else { return }
         selectedImage.canLoadObject(ofClass: UIImage.self)
-            selectedImage.loadObject(ofClass: UIImage.self) { image, error in
-
-                if let image = image as? UIImage {
-                    DispatchQueue.main.async {
-                        
-                        //ここで遷移渡しをしてuserの情報やselectedImageをUploadPostControllerにあげる
-                        self.selectedImage = image
-                        //ここですでにcontrollerDidFinishUploadingPost()を保持
-                        //UploadPostControllerはUINavigationを含むのでrootViewControllerにして入れた
-                        //self.present(controller, animated: true, completion: nil)
-//                        let nav = UINavigationController(rootViewController: controller)
-//                        print("UploadPostController")
-//                        nav.modalPresentationStyle = .fullScreen
-//                        self.navigationController?.pushViewController(nav, animated: true)
-                      //  self.present(nav, animated: false, completion: nil)
-
-                        
-                        
-                        
-                    }
-                   
-                
+        selectedImage.loadObject(ofClass: UIImage.self) { image, error in
+            
+            if let image = image as? UIImage {
+                DispatchQueue.main.async {
+                    
+                    self.selectedImage = image
+                    
+                    
                 }
+                
+                
             }
-           
-            
-            
-            
+        }
+        
+        
+        
+        
     }
     
     

@@ -67,7 +67,6 @@ class OrnamentViewController: UIViewController {
         setupCollectionView()
         
         
-        
     }
     private func setupSideMenu() {
         let sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
@@ -107,11 +106,15 @@ class OrnamentViewController: UIViewController {
 
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            
+            showLoader(true)
             fetchUser()
     
     
         }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showLoader(false)
+    }
     
     //loginSegue
     private func presentToViewController() {
@@ -127,7 +130,7 @@ class OrnamentViewController: UIViewController {
         // searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = "登録した名前で検索できるよ"
         //searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         definesPresentationContext = false
