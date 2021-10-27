@@ -36,7 +36,7 @@ class NewRegistrationViewController: UIViewController {
         congigureButtton()
     }
     
-    @IBAction func setProfileImage(_ sender: UITapGestureRecognizer){
+    @IBAction func setProfileImage(_ sender: Any){
         print("UITapGestureRecognizer")
         let picker = UIImagePickerController()
         picker.delegate = self
