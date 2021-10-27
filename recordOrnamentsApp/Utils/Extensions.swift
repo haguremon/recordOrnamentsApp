@@ -217,3 +217,17 @@ extension UIView {
                bottom: view.bottomAnchor, right: view.rightAnchor)
     }
 }
+
+extension UIWindow {
+
+    func beginIgnoringInteractionEvents() {
+        let overlayView = UIView(frame: bounds)
+        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        overlayView.tag = 10000
+            addSubview(overlayView)
+    }
+
+    func endIgnoringInteractionEvents() {
+        viewWithTag(10000)?.removeFromSuperview()
+    }
+}

@@ -9,14 +9,8 @@ import UIKit
 import SideMenu
 import FirebaseAuth
 
-
-protocol OrnamentViewControllerDelegate: AnyObject {
-    func userDate(user: User)
-}
-
-
 class OrnamentViewController: UIViewController {
-        
+    
     var user: User? {
         didSet {
             guard let user = user else { return }
@@ -48,11 +42,6 @@ class OrnamentViewController: UIViewController {
     var menu: SideMenuNavigationController?
     let collectionViewLayout = CollectionViewLayout()
     
-    weak var delegate: OrnamentViewControllerDelegate?
-    
-    let imagename = ["square.and.arrow.up","paperplane","paperplane","paperplane","paperplane","arrow.down.to.line","gear","magnifyingglass","clock","square.and.arrow.up","paperplane","arrow.down.to.line","gear","magnifyingglass","clock"]
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfUserIsLoggedIn()
@@ -65,8 +54,14 @@ class OrnamentViewController: UIViewController {
         configureSearchController()
         setupSideMenu()
         setupCollectionView()
+        fetchPosts()
+    
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(habdleRefresh), for: .valueChanged)
         
-        
+        refresher.tintColor = .secondaryLabel
+        collectionView.refreshControl = refresher
+
     }
     private func setupSideMenu() {
         let sideMenuViewController = storyboard?.instantiateViewController(withIdentifier: "SideMenu") as? SideMenuViewController
@@ -82,35 +77,47 @@ class OrnamentViewController: UIViewController {
     }
     func checkIfUserIsLoggedIn() {
         // configurenavigationController()
+        print("check1")
         if Auth.auth().currentUser == nil  {
             //ログイン中じゃない場合はLoginControllerに移動する
             
             
             DispatchQueue.main.async {
+                print("check2222")
                 self.presentToViewController()
             }
             
             
             
         }
+        
     }
     private func fetchUser(){
         //コールバックを使ってProfileControllerのプロパティに代入する
         UserService.fetchUser { user in
             self.user = user
-    
+            
         }
-
+        
+    }
+    private func fetchPosts() {
+        guard post == nil else { return }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        PostService.fetchPosts(forUser: uid) { (posts) in
+            self.posts = posts
+            //self.checkIfUserLikedPosts()
+            self.collectionView.refreshControl?.endRefreshing()
+        }
     }
     
-
-        override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            showLoader(true)
-            fetchUser()
     
-    
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showLoader(true)
+        fetchUser()
+        fetchPosts()
+        
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showLoader(false)
@@ -126,7 +133,7 @@ class OrnamentViewController: UIViewController {
         
     }
     
-   private func configureSearchController(){
+    private func configureSearchController(){
         // searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
@@ -155,7 +162,7 @@ class OrnamentViewController: UIViewController {
         print("didFinishPickingMedia ここで1")
         //ここですでにcontrollerDidFinishUploadingPost()を保持
         controller.delegate = self
-       //投稿してユーザーの情報を　渡す
+        //投稿してユーザーの情報を　渡す
         controller.currentUser = self.user
         //UploadPostControllerはUINavigationを含むのでrootViewControllerにして入れた
         let nav = UINavigationController(rootViewController: controller)
@@ -164,16 +171,16 @@ class OrnamentViewController: UIViewController {
         
         self.present(nav, animated: false, completion: nil)
         
-
+        
         
     }
     
-
+    
     @objc func createSideMenuButton(_ sender: Any) {
-
-    present(menu!, animated: true, completion: nil)
         
-  
+        present(menu!, animated: true, completion: nil)
+        
+        
         
     }
     
@@ -190,8 +197,9 @@ extension OrnamentViewController: UploadPostControllerDelegate{
     func controllerDidFinishUploadingPost(_ controller: UploadPostController) {
         
         controller.dismiss(animated: true, completion: nil)
-        print("果たしてこれは意味があるのか？")
-
+        
+        self.habdleRefresh()
+        
     }
     
     
@@ -207,7 +215,7 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
     private func setupCollectionView() {
         collectionView.collectionViewLayout = collectionViewLayout.ornamentCollectionViewLayout()
         
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "header")
@@ -215,61 +223,53 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        1
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imagename.count
+        
+        return  post == nil ? posts.count : 1
+        
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
-            cell.layer.cornerRadius = 20
-            cell.backgroundColor = .darkGray
-            cell.imagenameLabel.tintColor = .secondaryLabel
-            cell.imagenameLabel.backgroundColor = .systemGray
-            cell.setup(image: UIImage(systemName: imagename[indexPath.row]), imagename: "name")
-            return cell
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)  as! CollectionViewCell
-        
-        switch indexPath.row {
-        case 0:
-            cell.backgroundColor = .darkGray
-            
-        case 1... :
-            
-            cell.backgroundColor = .green
-            
-        default:
-            break
+//        cell.imageView.sd_setImage(with: URL(string: posts[indexPath.row].imageUrl), completed: nil)
+        if let post = post {
+       //     print(post.imagename)
+            cell.setup(image: URL(string: post.imageUrl) , imagename: post.imagename)
+        } else {
+            cell.setup(image: URL(string: posts[indexPath.row].imageUrl), imagename: posts[indexPath.row].imagename)
         }
+        
+        return cell
+       
+}
+                                   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "DetailsView", sender: nil)
-        
-    }
-    //viewForSupplementaryをつけることができるヘッダーやフッターなので
-    
-    fileprivate func extractedFunc(_ indexPath: IndexPath, _ header1: HeaderCollectionReusableView) -> UICollectionReusableView {
-        if indexPath.section == 0 {
-            
-            header1.label.text = ""
-            
-        } else {
-            
-            header1.label.text = ""
             
         }
-        
-        return header1
-    }
+                                   //viewForSupplementaryをつけることができるヘッダーやフッターなので
     
+    fileprivate func extractedFunc(_ indexPath: IndexPath, _ header1: HeaderCollectionReusableView) -> UICollectionReusableView {
+//        if indexPath.section == 0 {
+//
+//            header1.label.text = ""
+//
+//        } else {
+//
+//            header1.label.text = ""
+//
+//            }
+            
+            return header1
+        }
+                                   
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                      withReuseIdentifier: "header",
@@ -277,13 +277,17 @@ extension OrnamentViewController: UICollectionViewDelegate, UICollectionViewData
         return extractedFunc(indexPath, header)
     }
     
-    
-    
-    
-}
-
-
-//MRAK: -SideMeun
+    @objc func habdleRefresh(){
+        posts.removeAll()
+        //ここでもう一回postsに入れる
+        fetchPosts()
+        
+        }
+                                   
+                                   }
+                                   
+                                   
+                                   //MRAK: -SideMeun
 
 extension OrnamentViewController: SideMenuNavigationControllerDelegate {
     
@@ -296,13 +300,13 @@ extension OrnamentViewController: SideMenuNavigationControllerDelegate {
         //ステータスバーの透明度
         settings.statusBarEndAlpha = 0
         return settings
-    }
-    
-    
-    
-    
-    
-    
+            }
+            
+            
+            
+            
+            
+            
     
     func sideMenuWillAppear(menu: SideMenuNavigationController, animated: Bool) {
         navigationController?.view.addSubview(coverView)
@@ -364,43 +368,43 @@ extension OrnamentViewController: SideMenuViewControllerDelegate {
 //                                                            action: #selector(didCancelSearch))
 //    }
 //
-//    @objc private func didCancelSearch() {
-//        searchBar.resignFirstResponder()
-//        navigationItem.rightBarButtonItem = nil
-//    }
-//
-//    private func query(_ text: String) {
-//        // Perform in search in the back ends
-//    }
-//}
-
-
-////MRAK: -keyboard
-//extension OrnamentViewController {
-//    @objc func showkeyboard(notification: Notification){
-//        //キーボードのフレームを求める
-//        let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
-//        //https://qiita.com/st43/items/3802624d15a8dded8169 //フレームについて
-//        guard let kayboardMinY = keyboardFrame?.minY else { return } //キーボードの高さ
-//        let registerButtonMaxY = view.frame.maxY //registerButtonの底辺の位置
-//        let distance = registerButtonMaxY - kayboardMinY + 30
-//        let transform = CGAffineTransform(translationX: 0, y: -distance)
-//        //https://qiita.com/hachinobu/items/57d4c305c907805b4a53 //Animation
-//        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
-//            self.view.transform = transform
-//        })
-//        //print("kayboardMinY: \(String(describing: kayboardMinY)), registerButtonMaxY: \(registerButtonMaxY)")
-//    }
-//    @objc func hidekeyboard(){
-//        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
-//            self.view.transform = .identity
-//        })
-//    }
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
-//
-//}
-//
-//
+        //    @objc private func didCancelSearch() {
+        //        searchBar.resignFirstResponder()
+        //        navigationItem.rightBarButtonItem = nil
+        //    }
+        //
+        //    private func query(_ text: String) {
+        //        // Perform in search in the back ends
+        //    }
+        //}
+        
+        
+        ////MRAK: -keyboard
+        //extension OrnamentViewController {
+        //    @objc func showkeyboard(notification: Notification){
+        //        //キーボードのフレームを求める
+        //        let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        //        //https://qiita.com/st43/items/3802624d15a8dded8169 //フレームについて
+        //        guard let kayboardMinY = keyboardFrame?.minY else { return } //キーボードの高さ
+        //        let registerButtonMaxY = view.frame.maxY //registerButtonの底辺の位置
+        //        let distance = registerButtonMaxY - kayboardMinY + 30
+        //        let transform = CGAffineTransform(translationX: 0, y: -distance)
+        //        //https://qiita.com/hachinobu/items/57d4c305c907805b4a53 //Animation
+        //        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+        //            self.view.transform = transform
+        //        })
+        //        //print("kayboardMinY: \(String(describing: kayboardMinY)), registerButtonMaxY: \(registerButtonMaxY)")
+        //    }
+        //    @objc func hidekeyboard(){
+        //        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+        //            self.view.transform = .identity
+        //        })
+        //    }
+        //
+        //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //        self.view.endEditing(true)
+        //    }
+        //
+        //}
+        //
+        //

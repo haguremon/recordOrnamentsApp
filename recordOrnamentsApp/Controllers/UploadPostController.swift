@@ -64,6 +64,7 @@ class UploadPostController: UIViewController {
         present(picker, animated: true)
         
     }
+    
     private lazy var imagenameTextView: InputTextView = {
         let tv = InputTextView()
         tv.placeholderText = "名前を付ける"
@@ -72,7 +73,7 @@ class UploadPostController: UIViewController {
         //tv.delegate = self
         tv.placeholderShouldCenter = false
         tv.returnKeyType = .next
-
+        
         return tv
     }()
     private lazy var captionTextView: InputTextView = {
@@ -90,7 +91,15 @@ class UploadPostController: UIViewController {
         let label = UILabel()
         label.textColor = .secondaryLabel
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "0/500"
+        label.text = "0/300"
+        return label
+    }()
+    
+    private let characterCountLabel2: UILabel = {
+        let label = UILabel()
+        label.textColor = .secondaryLabel
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.text = "0/15"
         return label
     }()
     
@@ -117,10 +126,14 @@ class UploadPostController: UIViewController {
         guard let user = currentUser else { return }
         //ここでインジケーターが発動する
         showLoader(true)
+        navigationItem.leftBarButtonItem?.isEnabled = false
         //
         PostService.uploadPost(caption: caption, image: image, imagename: imagename, user: user) { (error) in
             //uploadできたらインジケーターが終わる
             self.showLoader(false)
+           
+            self.navigationItem.leftBarButtonItem?.isEnabled = true
+            
             if let error = error {
                 print("DEBUG: Failed to upload post \(error.localizedDescription)")
                 return
@@ -130,24 +143,17 @@ class UploadPostController: UIViewController {
             self.delegate?.controllerDidFinishUploadingPost(self)
             //     self.dismiss(animated: true, completion: nil)
             //            self.tabBarController?.selectedIndex = 0
-        //delegateに値が入ってるのでcontrollerDidFinishUploadingPost()を使うことができる
+            //delegateに値が入ってるのでcontrollerDidFinishUploadingPost()を使うことができる
             //rightBarButtonItemが押された時にcontrollerDidFinishUploadingPostが発動する
             // self.seni()
         }
     }
     @objc func didTapDone() {
+       
         uploadPost()
     }
     //
     //    // MARK: - Helpers
-    func checkMaxLength(_ textView: UITextView){
-        //のカウントを超える場合は
-        if (textView.text.count) > 500 {
-            //UITextViewに入力できないくなる
-            textView.deleteBackward()
-        }
-    }
-    //
     func configureUI(){
         
         view.backgroundColor = .systemBackground
@@ -158,13 +164,17 @@ class UploadPostController: UIViewController {
         navigationItem.title = "保管"
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .done, target: self, action: #selector(didTapDone))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .done, target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapDone))
         view.addSubview(imagenameTextView)
         imagenameTextView.setDimensions(height: view.bounds.height / 11, width: view.bounds.width)
         imagenameTextView.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 15)
         imagenameTextView.centerX(inView: view)
-        
+        view.addSubview(characterCountLabel2)
+        characterCountLabel2.anchor(bottom: imagenameTextView.bottomAnchor, right: view.rightAnchor,paddingBottom: 0, paddingRight: 14)
         view.addSubview(photoImageView)
+        
+        
         photoImageView.setDimensions(height: view.bounds.height / 3, width: view.bounds.width)
         photoImageView.anchor(top: imagenameTextView.bottomAnchor, paddingTop: 8)
         photoImageView.centerX(inView: view)
@@ -210,17 +220,53 @@ extension UploadPostController {
     }
     
     
+    func checkMaxLength(_ textView: UITextView){
+        
+        switch textView {
+        case imagenameTextView:
+            if (textView.text.count) > 15 {
+                textView.deleteBackward()
+            }
+        case captionTextView:
+
+            if (textView.text.count) > 300 {
+    
+                textView.deleteBackward()
+            }
+            
+        default:
+            break
+            
+        }
+    
+    }
+    //
+    
+    
+    
 }
-
-
 
 // MARK: - UITextFieldDelegate
 //textViewの文字のカウントを認知することができる
 extension UploadPostController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        checkMaxLength(textView)
-        let count = textView.text.count
-        characterCountLabel.text = "\(count)/300"
+        switch textView {
+        case imagenameTextView:
+            checkMaxLength(textView)
+            let count = textView.text.count
+            characterCountLabel2.text = "\(count)/15"
+        
+        case captionTextView:
+            checkMaxLength(textView)
+            let count = textView.text.count
+            characterCountLabel.text = "\(count)/300"
+     
+        default:
+            break
+            
+        }
+        
+     
     }
     //UITextFieldDelegateを使ってユーザーの入力を認知する
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -228,7 +274,7 @@ extension UploadPostController: UITextViewDelegate {
             //nameEmailTextFieldでリターンが押された時にpasswordTextFieldのキーボードを開く
             imagenameTextView.resignFirstResponder()
             captionTextView.becomeFirstResponder()
-        
+            
         } else if textField ==  captionTextView {
             //textFieldが押されたらログインボタンが起動する
             uploadPost()
@@ -239,7 +285,7 @@ extension UploadPostController: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange,
-                        replacementText text: String) -> Bool {
+                  replacementText text: String) -> Bool {
         if text == "\n" {
             imagenameTextView.resignFirstResponder() //キーボードを閉じる
             captionTextView.resignFirstResponder()

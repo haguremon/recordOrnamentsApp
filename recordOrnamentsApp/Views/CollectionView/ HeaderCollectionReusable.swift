@@ -10,14 +10,12 @@ import UIKit
 
 class HeaderCollectionReusableView: UICollectionReusableView {
     
-    let label = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(label)
+    
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        label.frame.size = self.bounds.size
     }
     
     required init?(coder: NSCoder) {
