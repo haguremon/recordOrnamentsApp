@@ -112,14 +112,19 @@ class LoginViewController: UIViewController {
     
     
     private func presentToRegistrationViewController() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "NewRegistrationViewController") as! NewRegistrationViewController
-        present(vc, animated: true, completion: nil)
+        let newRegistrationViewController = storyboard?.instantiateViewController(withIdentifier: "NewRegistrationViewController") as! NewRegistrationViewController
+        newRegistrationViewController.modalPresentationStyle = .fullScreen
+        
+        present(newRegistrationViewController, animated: true, completion: nil)
         
     }
     
     private func presentToOrnamentViewController() {
+        let newRegistrationViewController = storyboard?.instantiateViewController(withIdentifier: "NewRegistrationViewController") as! NewRegistrationViewController
+        newRegistrationViewController.modalPresentationStyle = .fullScreen
         
-        performSegue(withIdentifier: "OrnamentViewSegue", sender: nil)
+        present(newRegistrationViewController, animated: true, completion: nil)
+      
         
     }
    

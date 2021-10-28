@@ -379,32 +379,4 @@ extension OrnamentViewController: SideMenuViewControllerDelegate {
         //}
         
         
-        ////MRAK: -keyboard
-        //extension OrnamentViewController {
-        //    @objc func showkeyboard(notification: Notification){
-        //        //キーボードのフレームを求める
-        //        let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
-        //        //https://qiita.com/st43/items/3802624d15a8dded8169 //フレームについて
-        //        guard let kayboardMinY = keyboardFrame?.minY else { return } //キーボードの高さ
-        //        let registerButtonMaxY = view.frame.maxY //registerButtonの底辺の位置
-        //        let distance = registerButtonMaxY - kayboardMinY + 30
-        //        let transform = CGAffineTransform(translationX: 0, y: -distance)
-        //        //https://qiita.com/hachinobu/items/57d4c305c907805b4a53 //Animation
-        //        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
-        //            self.view.transform = transform
-        //        })
-        //        //print("kayboardMinY: \(String(describing: kayboardMinY)), registerButtonMaxY: \(registerButtonMaxY)")
-        //    }
-        //    @objc func hidekeyboard(){
-        //        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
-        //            self.view.transform = .identity
-        //        })
-        //    }
-        //
-        //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //        self.view.endEditing(true)
-        //    }
-        //
-        //}
-        //
-        //
+  

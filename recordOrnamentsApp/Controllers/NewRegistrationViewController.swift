@@ -11,8 +11,9 @@ import Lottie
 class NewRegistrationViewController: UIViewController {
     @IBOutlet private var animationView: UIView!
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    private var selectedImage: UIImage? = UIImage(named: "plus_photo")
+    @IBOutlet weak var profileImageButton: UIButton!
+   
+    private var selectedImage: UIImage? = UIImage(systemName: "person")
    
     @IBOutlet private var emailTextField: UITextField!
    
@@ -22,30 +23,56 @@ class NewRegistrationViewController: UIViewController {
     
     @IBOutlet private var registerButton: UIButton!
     
+   
     @IBAction func tappedRegisterButton(_ sender: UIButton) {
         print("tap")
         handleAuthToFirebase()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
        
         movingBackground()
         configureUI()
         congigureButtton()
+       // profileImageView.addSubview(tap)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(hidekeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
-    @IBAction func setProfileImage(_ sender: Any){
-        print("UITapGestureRecognizer")
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.allowsEditing = true
+    @IBAction func setprofileImageButton(_ sender: UIButton) {
+        setprofile()
+    
+    }
+    
+    func setprofile(){
+        print("tap")
         
-        present(picker, animated: true, completion: nil)
+        let camera = UIImagePickerController.SourceType.camera
+        let picker = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(camera) {
+           
+    
+    
+            picker.delegate = self
+            picker.allowsEditing = true
+    
+            present(picker, animated: true, completion: nil)
+            
+        } else {
+            
+            picker.delegate = self
+            picker.allowsEditing = true
+    
+            present(picker, animated: true, completion: nil)
+        }
+
     
     }
     private func handleAuthToFirebase() {
+        registerButton.isEnabled = false
         guard let email = emailTextField.text, !email.isEmpty ,
               let password = passwordTextField.text, password.count > 7 ,
               let name = userNameTextField.text, !name.isEmpty else { return }
@@ -54,10 +81,10 @@ class NewRegistrationViewController: UIViewController {
         AuthService.registerUser(withCredential: authCredential) { (error) in
             if let error = error {
                 print("DEBUG: Failed to register user\(error.localizedDescription)")
-                print("error")
+                self.registerButton.isEnabled = true
                 return
             }
-
+            self.registerButton.isEnabled = true
             let ornamentViewController = self.storyboard?.instantiateViewController(identifier: "OrnamentViewController") as! OrnamentViewController
             let navVC = UINavigationController(rootViewController: ornamentViewController)
             navVC.modalPresentationStyle = .fullScreen
@@ -72,8 +99,7 @@ class NewRegistrationViewController: UIViewController {
     }
     
     private func configureUI() {
-        profileImageView.image = UIImage(named: "plus_photo")
-        profileImageView.layer.cornerRadius = 20
+ 
     }
     private func  congigureButtton() {
         passwordTextField.textContentType = .newPassword
@@ -91,6 +117,16 @@ class NewRegistrationViewController: UIViewController {
         //registerButton.layer.cornerRadius = 10 //角を丸く
         registerButton.backgroundColor = UIColor(r: 180, g: 255, b: 211)
        //registerButton.backgroundColor = UIColor.rgb(red: 180, green: 255, blue: 221)
+        profileImageButton.layer.cornerRadius = 45
+        profileImageButton.imageView?.contentMode = .scaleToFill
+        profileImageButton.imageView?.layer.cornerRadius = 45
+        profileImageButton.layer.borderWidth = 0.7
+        profileImageButton.layer.borderColor = UIColor.systemBackground.cgColor
+                // Horizontal 拡大
+        profileImageButton.contentHorizontalAlignment = .fill
+//                // Vertical 拡大
+        profileImageButton.contentVerticalAlignment = .fill
+        
         userNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -105,7 +141,7 @@ class NewRegistrationViewController: UIViewController {
         background.loopMode = .autoReverse
         background.contentMode = .scaleAspectFit
         background.animationSpeed = 0.7
-        
+        background.isUserInteractionEnabled = true
         animationView.addSubview(background)
         background.play()
         
@@ -121,13 +157,12 @@ extension NewRegistrationViewController :UIImagePickerControllerDelegate, UINavi
         
         self.selectedImage = selectedImage
         
-            profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
-            profileImageView.layer.masksToBounds = true
-            profileImageView.layer.borderColor = UIColor.white.cgColor
-            profileImageView.layer.borderWidth = 2
-//            profileImageView.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
-        profileImageView.image = selectedImage
-        
+        profileImageButton.layer.cornerRadius = profileImageButton.frame.width / 2
+        profileImageButton.layer.masksToBounds = true
+        profileImageButton.layer.borderColor = UIColor.white.cgColor
+        profileImageButton.layer.borderWidth = 2
+       // profileImageView.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        profileImageButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
             self.dismiss(animated: true, completion: nil)
     }
 
@@ -149,4 +184,39 @@ extension NewRegistrationViewController :UITextFieldDelegate { //可読性の向
    }
 
 
+}
+extension NewRegistrationViewController {
+    
+    // キーボードが表示された時
+    @objc private func keyboardWillShow(sender: NSNotification) {
+        
+        if userNameTextField.isFirstResponder {
+            guard let userInfo = sender.userInfo else { return }
+            let duration: Float = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).floatValue
+            UIView.animate(withDuration: TimeInterval(duration), animations: { () -> Void in
+                let transform = CGAffineTransform(translationX: 0, y: -100)
+                self.view.transform = transform
+            })
+        }
+        
+        if userNameTextField.isFirstResponder {
+            guard let userInfo = sender.userInfo else { return }
+            let duration: Float = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber).floatValue
+            UIView.animate(withDuration: TimeInterval(duration), animations: { () -> Void in
+                let transform = CGAffineTransform(translationX: 0, y: -150)
+                self.view.transform = transform
+            })
+        }
+    }
+    
+    @objc func hidekeyboard(){
+        UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+            self.view.transform = .identity
+        })
+    }
+    //画面をタップした時にキーボードを閉じる
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 }

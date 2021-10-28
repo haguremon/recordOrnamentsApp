@@ -20,6 +20,7 @@
 		CF4CE57B26FDA8E500BD78CA /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */; };
 		CF4CE5802700446400BD78CA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */; };
 		CF4CE5812700446400BD78CA /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */; };
+		CF829E6E272A72E8000F6DC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF829E6D272A72E8000F6DC1 /* ContentView.swift */; };
 		CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE126E894C500150D9F /* DescriptionViewController.swift */; };
 		CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE326E89F3300150D9F /* IconViewController.swift */; };
 		CF96065726FD7E2600E4D2BF /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = CF96065626FD7E2600E4D2BF /* SideMenu */; };
@@ -82,6 +83,7 @@
 		CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		CF829E6D272A72E8000F6DC1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CF91FBE126E894C500150D9F /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		CF91FBE326E89F3300150D9F /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
 		CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				CF9C82152727E81100C8FB5E /* InputTextView.swift */,
 				CFC22DAE2723CD5C0016F688 /* Constants.swift */,
 				CFC22DB62723DDE40016F688 /* Extensions.swift */,
+				CF829E6D272A72E8000F6DC1 /* ContentView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				CF9C82142727E7E200C8FB5E /* UploadPostController.swift in Sources */,
 				CF4706E82706A06400F7B941 /*  HeaderCollectionReusable.swift in Sources */,
 				CF49DEA226E344EC008707C2 /* NewRegistrationViewController.swift in Sources */,
+				CF829E6E272A72E8000F6DC1 /* ContentView.swift in Sources */,
 				CFC22E2C2727B5C00016F688 /* User.swift in Sources */,
 				CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */,
 				CF9C81F22727DDF900C8FB5E /* Post.swift in Sources */,

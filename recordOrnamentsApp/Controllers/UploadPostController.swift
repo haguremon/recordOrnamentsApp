@@ -37,7 +37,7 @@ class UploadPostController: UIViewController {
     private lazy var addPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("写真を追加する", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         button.addTarget(self, action: #selector(addPhoto), for: .touchUpInside)
         button.backgroundColor = .systemRed
         button.tintColor = .white
@@ -51,12 +51,13 @@ class UploadPostController: UIViewController {
     
     @objc func addPhoto() {
         
-        var configuration = PHPickerConfiguration()
+        var configuration = PHPickerConfiguration(photoLibrary: .shared())
         configuration.selectionLimit = 1
-        configuration.selection = .default
-        configuration.preferredAssetRepresentationMode = .automatic
+        //configuration.selection = .default
         
-        configuration.filter = PHPickerFilter.images
+       // configuration.preferredAssetRepresentationMode = .automatic
+        
+        configuration.filter = .any(of: [.images, .livePhotos])
         
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
@@ -182,7 +183,7 @@ class UploadPostController: UIViewController {
         
         view.addSubview(addPhotoButton)
         //addPhotoButton.setDimensions(height: 55, width: 100)
-        addPhotoButton.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 15, paddingLeft: 100, paddingRight: 100, height: 55)
+        addPhotoButton.anchor(top: photoImageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 15, paddingLeft: 80, paddingRight: 80, height: 55)
         
         view.addSubview(captionTextView)
         captionTextView.anchor(top: addPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 5, paddingRight: 5, height: 100)
