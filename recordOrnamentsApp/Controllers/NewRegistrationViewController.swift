@@ -61,13 +61,13 @@ class NewRegistrationViewController: UIViewController {
     
             present(picker, animated: true, completion: nil)
             
-        } else {
-            
-            picker.delegate = self
-            picker.allowsEditing = true
-    
-            present(picker, animated: true, completion: nil)
-        }
+       } // else {
+//
+//            picker.delegate = self
+//            picker.allowsEditing = true
+//
+//            present(picker, animated: true, completion: nil)
+//        }
 
     
     }

@@ -9,61 +9,44 @@
 /* Begin PBXBuildFile section */
 		326197CE6B376858D485931E /* Pods_recordOrnamentsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC10563D9A190CE1303F1F78 /* Pods_recordOrnamentsAppTests.framework */; };
 		47FD0702886A3B4ED9AC2CDD /* Pods_recordOrnamentsApp_recordOrnamentsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A75445A2429C3958C23B27 /* Pods_recordOrnamentsApp_recordOrnamentsAppUITests.framework */; };
-		B7AB6C5AFB76F00E1D1606EB /* Pods_recordOrnamentsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC92C14830302263FA47E2F /* Pods_recordOrnamentsApp.framework */; };
-		CF2891C72702BDAA00FEC85A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CF2891C62702BDAA00FEC85A /* Lottie */; };
-		CF2891CB2702C56300FEC85A /* background2.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2891CA2702C56300FEC85A /* background2.json */; };
-		CF36A0BB26E5E0CC00ADD2DA /* OrnamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */; };
-		CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
 		CF36A0BE26E5E51500ADD2DA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
-		CF4706E82706A06400F7B941 /*  HeaderCollectionReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4706E72706A06400F7B941 /*  HeaderCollectionReusable.swift */; };
-		CF49DEA226E344EC008707C2 /* NewRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49DEA126E344EC008707C2 /* NewRegistrationViewController.swift */; };
-		CF4CE57B26FDA8E500BD78CA /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */; };
-		CF4CE5802700446400BD78CA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */; };
-		CF4CE5812700446400BD78CA /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */; };
-		CF829E6E272A72E8000F6DC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF829E6D272A72E8000F6DC1 /* ContentView.swift */; };
-		CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE126E894C500150D9F /* DescriptionViewController.swift */; };
-		CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE326E89F3300150D9F /* IconViewController.swift */; };
-		CF96065726FD7E2600E4D2BF /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = CF96065626FD7E2600E4D2BF /* SideMenu */; };
-		CF96065926FD7E8200E4D2BF /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */; };
-		CF9C81F02727BB3A00C8FB5E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CF9C81EF2727BB3A00C8FB5E /* SDWebImage */; };
-		CF9C81F22727DDF900C8FB5E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C81F12727DDF900C8FB5E /* Post.swift */; };
-		CF9C82142727E7E200C8FB5E /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82132727E7E200C8FB5E /* UploadPostController.swift */; };
-		CF9C82162727E81100C8FB5E /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82152727E81100C8FB5E /* InputTextView.swift */; };
-		CF9C82182727E87000C8FB5E /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82172727E87000C8FB5E /* PostService.swift */; };
-		CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */; };
-		CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */; };
-		CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */; };
-		CFB3BBBB26E2096200EB2B1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB3BBB926E2096200EB2B1A /* Main.storyboard */; };
-		CFB3BBBD26E2096600EB2B1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB3BBBC26E2096600EB2B1A /* Assets.xcassets */; };
-		CFB3BBC026E2096600EB2B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB3BBBE26E2096600EB2B1A /* LaunchScreen.storyboard */; };
+		CF829EB5272A8FE3000F6DC1 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82152727E81100C8FB5E /* InputTextView.swift */; };
+		CF829EB6272A8FE3000F6DC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */; };
+		CF829EB7272A8FE3000F6DC1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DAE2723CD5C0016F688 /* Constants.swift */; };
+		CF829EB8272A8FE3000F6DC1 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE126E894C500150D9F /* DescriptionViewController.swift */; };
+		CF829EB9272A8FE3000F6DC1 /* OrnamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BA26E5E0CC00ADD2DA /* OrnamentViewController.swift */; };
+		CF829EBA272A8FE3000F6DC1 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82172727E87000C8FB5E /* PostService.swift */; };
+		CF829EBB272A8FE3000F6DC1 /* UserSerivice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DA32723BDFD0016F688 /* UserSerivice.swift */; };
+		CF829EBC272A8FE3000F6DC1 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB02723CE5C0016F688 /* ImageUploader.swift */; };
+		CF829EBD272A8FE3000F6DC1 /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF91FBE326E89F3300150D9F /* IconViewController.swift */; };
+		CF829EBE272A8FE3000F6DC1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB62723DDE40016F688 /* Extensions.swift */; };
+		CF829EBF272A8FE3000F6DC1 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */; };
+		CF829EC0272A8FE3000F6DC1 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57A26FDA8E500BD78CA /* CollectionViewLayout.swift */; };
+		CF829EC1272A8FE3000F6DC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */; };
+		CF829EC2272A8FE3000F6DC1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */; };
+		CF829EC3272A8FE3000F6DC1 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C82132727E7E200C8FB5E /* UploadPostController.swift */; };
+		CF829EC4272A8FE3000F6DC1 /*  HeaderCollectionReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4706E72706A06400F7B941 /*  HeaderCollectionReusable.swift */; };
+		CF829EC5272A8FE3000F6DC1 /* NewRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49DEA126E344EC008707C2 /* NewRegistrationViewController.swift */; };
+		CF829EC6272A8FE3000F6DC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF829E6D272A72E8000F6DC1 /* ContentView.swift */; };
+		CF829EC7272A8FE3000F6DC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22E2B2727B5BF0016F688 /* User.swift */; };
+		CF829EC8272A8FE3000F6DC1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */; };
+		CF829EC9272A8FE3000F6DC1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9C81F12727DDF900C8FB5E /* Post.swift */; };
+		CF829ECA272A8FE3000F6DC1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36A0BC26E5E51500ADD2DA /* DetailsViewController.swift */; };
+		CF829ECB272A8FE3000F6DC1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DAB2723CC410016F688 /* AuthService.swift */; };
+		CF829ECD272A8FE3000F6DC1 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = CF829EAF272A8FE3000F6DC1 /* JGProgressHUD */; };
+		CF829ECE272A8FE3000F6DC1 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = CF829EAB272A8FE3000F6DC1 /* SideMenu */; };
+		CF829ECF272A8FE3000F6DC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CF829EAD272A8FE3000F6DC1 /* Lottie */; };
+		CF829ED0272A8FE3000F6DC1 /* Pods_recordOrnamentsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC92C14830302263FA47E2F /* Pods_recordOrnamentsApp.framework */; };
+		CF829ED1272A8FE3000F6DC1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CF829EB1272A8FE3000F6DC1 /* SDWebImage */; };
+		CF829ED3272A8FE3000F6DC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB3BBBE26E2096600EB2B1A /* LaunchScreen.storyboard */; };
+		CF829ED4272A8FE3000F6DC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB3BBBC26E2096600EB2B1A /* Assets.xcassets */; };
+		CF829ED5272A8FE3000F6DC1 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */; };
+		CF829ED6272A8FE3000F6DC1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFC22DA92723CBAA0016F688 /* GoogleService-Info.plist */; };
+		CF829ED7272A8FE3000F6DC1 /* background2.json in Resources */ = {isa = PBXBuildFile; fileRef = CF2891CA2702C56300FEC85A /* background2.json */; };
+		CF829ED8272A8FE3000F6DC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB3BBB926E2096200EB2B1A /* Main.storyboard */; };
 		CFB3BBCB26E2096600EB2B1A /* recordOrnamentsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBCA26E2096600EB2B1A /* recordOrnamentsAppTests.swift */; };
 		CFB3BBD626E2096600EB2B1A /* recordOrnamentsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB3BBD526E2096600EB2B1A /* recordOrnamentsAppUITests.swift */; };
-		CFC22DA42723BDFD0016F688 /* UserSerivice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DA32723BDFD0016F688 /* UserSerivice.swift */; };
-		CFC22DAA2723CBAA0016F688 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFC22DA92723CBAA0016F688 /* GoogleService-Info.plist */; };
-		CFC22DAC2723CC410016F688 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DAB2723CC410016F688 /* AuthService.swift */; };
-		CFC22DAF2723CD5C0016F688 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DAE2723CD5C0016F688 /* Constants.swift */; };
-		CFC22DB12723CE5C0016F688 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB02723CE5C0016F688 /* ImageUploader.swift */; };
-		CFC22DB42723DDA60016F688 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = CFC22DB32723DDA60016F688 /* JGProgressHUD */; };
-		CFC22DB72723DDE40016F688 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22DB62723DDE40016F688 /* Extensions.swift */; };
-		CFC22E2C2727B5C00016F688 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC22E2B2727B5BF0016F688 /* User.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CFB3BBC726E2096600EB2B1A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CFB3BBA826E2096200EB2B1A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CFB3BBAF26E2096200EB2B1A;
-			remoteInfo = recordOrnamentsApp;
-		};
-		CFB3BBD226E2096600EB2B1A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CFB3BBA826E2096200EB2B1A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CFB3BBAF26E2096200EB2B1A;
-			remoteInfo = recordOrnamentsApp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		065ADD464A1323181C6FDC6A /* Pods-recordOrnamentsApp-recordOrnamentsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recordOrnamentsApp-recordOrnamentsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-recordOrnamentsApp-recordOrnamentsAppUITests/Pods-recordOrnamentsApp-recordOrnamentsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +67,11 @@
 		CF4CE57E2700446400BD78CA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CF4CE57F2700446400BD78CA /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CF829E6D272A72E8000F6DC1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CF829E6F272A89F7000F6DC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF829EA7272A8F8D000F6DC1 /* recordOrnamentsApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "recordOrnamentsApp copy-Info.plist"; path = "/Users/iwasakiyuuta/Desktop/Release App/recordOrnamentsApp/recordOrnamentsApp copy-Info.plist"; sourceTree = "<absolute>"; };
+		CF829EA8272A8F8E000F6DC1 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CollectionViewCell.xib; path = "Resources-iPad/recordOrnamentsApp/Views/CollectionView/CollectionViewCell.xib"; sourceTree = "<group>"; };
+		CF829EDD272A8FE3000F6DC1 /* recordOrnamentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordOrnamentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF829EDE272A8FE4000F6DC1 /* recordOrnamentsApp copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "recordOrnamentsApp copy2-Info.plist"; path = "/Users/iwasakiyuuta/Desktop/Release App/recordOrnamentsApp/recordOrnamentsApp copy2-Info.plist"; sourceTree = "<absolute>"; };
 		CF91FBE126E894C500150D9F /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		CF91FBE326E89F3300150D9F /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
 		CF96065826FD7E8200E4D2BF /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -91,14 +79,12 @@
 		CF9C82132727E7E200C8FB5E /* UploadPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
 		CF9C82152727E81100C8FB5E /* InputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		CF9C82172727E87000C8FB5E /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
-		CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recordOrnamentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB3BBB326E2096200EB2B1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFB3BBB526E2096200EB2B1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CFB3BBB726E2096200EB2B1A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CFB3BBBA26E2096200EB2B1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFB3BBBC26E2096600EB2B1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFB3BBBF26E2096600EB2B1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CFB3BBC126E2096600EB2B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFB3BBC626E2096600EB2B1A /* recordOrnamentsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = recordOrnamentsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB3BBCA26E2096600EB2B1A /* recordOrnamentsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordOrnamentsAppTests.swift; sourceTree = "<group>"; };
 		CFB3BBCC26E2096600EB2B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,15 +102,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CFB3BBAD26E2096200EB2B1A /* Frameworks */ = {
+		CF829ECC272A8FE3000F6DC1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFC22DB42723DDA60016F688 /* JGProgressHUD in Frameworks */,
-				CF96065726FD7E2600E4D2BF /* SideMenu in Frameworks */,
-				CF2891C72702BDAA00FEC85A /* Lottie in Frameworks */,
-				B7AB6C5AFB76F00E1D1606EB /* Pods_recordOrnamentsApp.framework in Frameworks */,
-				CF9C81F02727BB3A00C8FB5E /* SDWebImage in Frameworks */,
+				CF829ECD272A8FE3000F6DC1 /* JGProgressHUD in Frameworks */,
+				CF829ECE272A8FE3000F6DC1 /* SideMenu in Frameworks */,
+				CF829ECF272A8FE3000F6DC1 /* Lottie in Frameworks */,
+				CF829ED0272A8FE3000F6DC1 /* Pods_recordOrnamentsApp.framework in Frameworks */,
+				CF829ED1272A8FE3000F6DC1 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,24 +191,35 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		CF829EA6272A8F8B000F6DC1 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				CF829EA8272A8F8E000F6DC1 /* CollectionViewCell.xib */,
+			);
+			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
 		CFB3BBA726E2096200EB2B1A = {
 			isa = PBXGroup;
 			children = (
+				CF829EA6272A8F8B000F6DC1 /* Resources-iPad */,
 				CFB3BBB226E2096200EB2B1A /* recordOrnamentsApp */,
 				CFB3BBC926E2096600EB2B1A /* recordOrnamentsAppTests */,
 				CFB3BBD426E2096600EB2B1A /* recordOrnamentsAppUITests */,
 				CFB3BBB126E2096200EB2B1A /* Products */,
 				5031F57AE05AC8CC21D046C1 /* Pods */,
 				51072523537288AD12CBA513 /* Frameworks */,
+				CF829EA7272A8F8D000F6DC1 /* recordOrnamentsApp copy-Info.plist */,
+				CF829EDE272A8FE4000F6DC1 /* recordOrnamentsApp copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		CFB3BBB126E2096200EB2B1A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */,
 				CFB3BBC626E2096600EB2B1A /* recordOrnamentsAppTests.xctest */,
 				CFB3BBD126E2096600EB2B1A /* recordOrnamentsAppUITests.xctest */,
+				CF829EDD272A8FE3000F6DC1 /* recordOrnamentsApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,8 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				CFC22DBB272445730016F688 /* recordOrnamentsApp.entitlements */,
+				CF829E6F272A89F7000F6DC1 /* Info.plist */,
 				CFC22DA92723CBAA0016F688 /* GoogleService-Info.plist */,
-				CFB3BBC126E2096600EB2B1A /* Info.plist */,
 				CFC22DAD2723CD180016F688 /* Utils */,
 				CFC22DA72723CB580016F688 /* Resources */,
 				CFC22E2A2727B5AB0016F688 /* Models */,
@@ -315,15 +312,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CFB3BBAF26E2096200EB2B1A /* recordOrnamentsApp */ = {
+		CF829EAA272A8FE3000F6DC1 /* recordOrnamentsApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CFB3BBDA26E2096600EB2B1A /* Build configuration list for PBXNativeTarget "recordOrnamentsApp" */;
+			buildConfigurationList = CF829EDA272A8FE3000F6DC1 /* Build configuration list for PBXNativeTarget "recordOrnamentsApp" */;
 			buildPhases = (
-				49206C75E157D70F1A857BF5 /* [CP] Check Pods Manifest.lock */,
-				CFB3BBAC26E2096200EB2B1A /* Sources */,
-				CFB3BBAD26E2096200EB2B1A /* Frameworks */,
-				CFB3BBAE26E2096200EB2B1A /* Resources */,
-				8AD0A4AC60A9ADEDF584CDC2 /* [CP] Embed Pods Frameworks */,
+				CF829EB3272A8FE3000F6DC1 /* [CP] Check Pods Manifest.lock */,
+				CF829EB4272A8FE3000F6DC1 /* Sources */,
+				CF829ECC272A8FE3000F6DC1 /* Frameworks */,
+				CF829ED2272A8FE3000F6DC1 /* Resources */,
+				CF829ED9272A8FE3000F6DC1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,13 +328,13 @@
 			);
 			name = recordOrnamentsApp;
 			packageProductDependencies = (
-				CF96065626FD7E2600E4D2BF /* SideMenu */,
-				CF2891C62702BDAA00FEC85A /* Lottie */,
-				CFC22DB32723DDA60016F688 /* JGProgressHUD */,
-				CF9C81EF2727BB3A00C8FB5E /* SDWebImage */,
+				CF829EAB272A8FE3000F6DC1 /* SideMenu */,
+				CF829EAD272A8FE3000F6DC1 /* Lottie */,
+				CF829EAF272A8FE3000F6DC1 /* JGProgressHUD */,
+				CF829EB1272A8FE3000F6DC1 /* SDWebImage */,
 			);
 			productName = recordOrnamentsApp;
-			productReference = CFB3BBB026E2096200EB2B1A /* recordOrnamentsApp.app */;
+			productReference = CF829EDD272A8FE3000F6DC1 /* recordOrnamentsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CFB3BBC526E2096600EB2B1A /* recordOrnamentsAppTests */ = {
@@ -352,7 +349,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CFB3BBC826E2096600EB2B1A /* PBXTargetDependency */,
 			);
 			name = recordOrnamentsAppTests;
 			productName = recordOrnamentsAppTests;
@@ -372,7 +368,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CFB3BBD326E2096600EB2B1A /* PBXTargetDependency */,
 			);
 			name = recordOrnamentsAppUITests;
 			productName = recordOrnamentsAppUITests;
@@ -388,9 +383,6 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					CFB3BBAF26E2096200EB2B1A = {
-						CreatedOnToolsVersion = 12.5;
-					};
 					CFB3BBC526E2096600EB2B1A = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = CFB3BBAF26E2096200EB2B1A;
@@ -420,7 +412,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CFB3BBAF26E2096200EB2B1A /* recordOrnamentsApp */,
+				CF829EAA272A8FE3000F6DC1 /* recordOrnamentsApp */,
 				CFB3BBC526E2096600EB2B1A /* recordOrnamentsAppTests */,
 				CFB3BBD026E2096600EB2B1A /* recordOrnamentsAppUITests */,
 			);
@@ -428,16 +420,16 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CFB3BBAE26E2096200EB2B1A /* Resources */ = {
+		CF829ED2272A8FE3000F6DC1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFB3BBC026E2096600EB2B1A /* LaunchScreen.storyboard in Resources */,
-				CFB3BBBD26E2096600EB2B1A /* Assets.xcassets in Resources */,
-				CF4CE5812700446400BD78CA /* CollectionViewCell.xib in Resources */,
-				CFC22DAA2723CBAA0016F688 /* GoogleService-Info.plist in Resources */,
-				CF2891CB2702C56300FEC85A /* background2.json in Resources */,
-				CFB3BBBB26E2096200EB2B1A /* Main.storyboard in Resources */,
+				CF829ED3272A8FE3000F6DC1 /* LaunchScreen.storyboard in Resources */,
+				CF829ED4272A8FE3000F6DC1 /* Assets.xcassets in Resources */,
+				CF829ED5272A8FE3000F6DC1 /* CollectionViewCell.xib in Resources */,
+				CF829ED6272A8FE3000F6DC1 /* GoogleService-Info.plist in Resources */,
+				CF829ED7272A8FE3000F6DC1 /* background2.json in Resources */,
+				CF829ED8272A8FE3000F6DC1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,28 +450,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49206C75E157D70F1A857BF5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-recordOrnamentsApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		553AB6CF780EF0358BC94EBF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -500,23 +470,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8AD0A4AC60A9ADEDF584CDC2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8C49833A63F0DC25CC340942 /* [CP] Check Pods Manifest.lock */ = {
@@ -558,36 +511,75 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp-recordOrnamentsAppUITests/Pods-recordOrnamentsApp-recordOrnamentsAppUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CF829EB3272A8FE3000F6DC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-recordOrnamentsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF829ED9272A8FE3000F6DC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-recordOrnamentsApp/Pods-recordOrnamentsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CFB3BBAC26E2096200EB2B1A /* Sources */ = {
+		CF829EB4272A8FE3000F6DC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF9C82162727E81100C8FB5E /* InputTextView.swift in Sources */,
-				CFB3BBB826E2096200EB2B1A /* LoginViewController.swift in Sources */,
-				CFC22DAF2723CD5C0016F688 /* Constants.swift in Sources */,
-				CF91FBE226E894C500150D9F /* DescriptionViewController.swift in Sources */,
-				CF36A0BB26E5E0CC00ADD2DA /* OrnamentViewController.swift in Sources */,
-				CF9C82182727E87000C8FB5E /* PostService.swift in Sources */,
-				CFC22DA42723BDFD0016F688 /* UserSerivice.swift in Sources */,
-				CFC22DB12723CE5C0016F688 /* ImageUploader.swift in Sources */,
-				CF91FBE426E89F3300150D9F /* IconViewController.swift in Sources */,
-				CFC22DB72723DDE40016F688 /* Extensions.swift in Sources */,
-				CF96065926FD7E8200E4D2BF /* SideMenuViewController.swift in Sources */,
-				CF4CE57B26FDA8E500BD78CA /* CollectionViewLayout.swift in Sources */,
-				CFB3BBB426E2096200EB2B1A /* AppDelegate.swift in Sources */,
-				CF4CE5802700446400BD78CA /* CollectionViewCell.swift in Sources */,
-				CF9C82142727E7E200C8FB5E /* UploadPostController.swift in Sources */,
-				CF4706E82706A06400F7B941 /*  HeaderCollectionReusable.swift in Sources */,
-				CF49DEA226E344EC008707C2 /* NewRegistrationViewController.swift in Sources */,
-				CF829E6E272A72E8000F6DC1 /* ContentView.swift in Sources */,
-				CFC22E2C2727B5C00016F688 /* User.swift in Sources */,
-				CFB3BBB626E2096200EB2B1A /* SceneDelegate.swift in Sources */,
-				CF9C81F22727DDF900C8FB5E /* Post.swift in Sources */,
-				CF36A0BD26E5E51500ADD2DA /* DetailsViewController.swift in Sources */,
-				CFC22DAC2723CC410016F688 /* AuthService.swift in Sources */,
+				CF829EB5272A8FE3000F6DC1 /* InputTextView.swift in Sources */,
+				CF829EB6272A8FE3000F6DC1 /* LoginViewController.swift in Sources */,
+				CF829EB7272A8FE3000F6DC1 /* Constants.swift in Sources */,
+				CF829EB8272A8FE3000F6DC1 /* DescriptionViewController.swift in Sources */,
+				CF829EB9272A8FE3000F6DC1 /* OrnamentViewController.swift in Sources */,
+				CF829EBA272A8FE3000F6DC1 /* PostService.swift in Sources */,
+				CF829EBB272A8FE3000F6DC1 /* UserSerivice.swift in Sources */,
+				CF829EBC272A8FE3000F6DC1 /* ImageUploader.swift in Sources */,
+				CF829EBD272A8FE3000F6DC1 /* IconViewController.swift in Sources */,
+				CF829EBE272A8FE3000F6DC1 /* Extensions.swift in Sources */,
+				CF829EBF272A8FE3000F6DC1 /* SideMenuViewController.swift in Sources */,
+				CF829EC0272A8FE3000F6DC1 /* CollectionViewLayout.swift in Sources */,
+				CF829EC1272A8FE3000F6DC1 /* AppDelegate.swift in Sources */,
+				CF829EC2272A8FE3000F6DC1 /* CollectionViewCell.swift in Sources */,
+				CF829EC3272A8FE3000F6DC1 /* UploadPostController.swift in Sources */,
+				CF829EC4272A8FE3000F6DC1 /*  HeaderCollectionReusable.swift in Sources */,
+				CF829EC5272A8FE3000F6DC1 /* NewRegistrationViewController.swift in Sources */,
+				CF829EC6272A8FE3000F6DC1 /* ContentView.swift in Sources */,
+				CF829EC7272A8FE3000F6DC1 /* User.swift in Sources */,
+				CF829EC8272A8FE3000F6DC1 /* SceneDelegate.swift in Sources */,
+				CF829EC9272A8FE3000F6DC1 /* Post.swift in Sources */,
+				CF829ECA272A8FE3000F6DC1 /* DetailsViewController.swift in Sources */,
+				CF829ECB272A8FE3000F6DC1 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,19 +602,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		CFB3BBC826E2096600EB2B1A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CFB3BBAF26E2096200EB2B1A /* recordOrnamentsApp */;
-			targetProxy = CFB3BBC726E2096600EB2B1A /* PBXContainerItemProxy */;
-		};
-		CFB3BBD326E2096600EB2B1A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CFB3BBAF26E2096200EB2B1A /* recordOrnamentsApp */;
-			targetProxy = CFB3BBD226E2096600EB2B1A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		CFB3BBB926E2096200EB2B1A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -643,6 +622,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CF829EDB272A8FE3000F6DC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17A92D214E17A23D6F5F80B4 /* Pods-recordOrnamentsApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = recordOrnamentsApp/recordOrnamentsApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XS2R7967QT;
+				INFOPLIST_FILE = "/Users/iwasakiyuuta/Desktop/Release App/recordOrnamentsApp/recordOrnamentsAppTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cow.iwaski.recordOrnamentsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CF829EDC272A8FE3000F6DC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48EEFE4858349C94C135527F /* Pods-recordOrnamentsApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = recordOrnamentsApp/recordOrnamentsApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XS2R7967QT;
+				INFOPLIST_FILE = "/Users/iwasakiyuuta/Desktop/Release App/recordOrnamentsApp/recordOrnamentsAppTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cow.iwaski.recordOrnamentsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		CFB3BBD826E2096600EB2B1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -694,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -749,57 +772,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		CFB3BBDB26E2096600EB2B1A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17A92D214E17A23D6F5F80B4 /* Pods-recordOrnamentsApp.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = recordOrnamentsApp/recordOrnamentsApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XS2R7967QT;
-				INFOPLIST_FILE = recordOrnamentsApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = cow.iwaski.recordOrnamentsApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		CFB3BBDC26E2096600EB2B1A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48EEFE4858349C94C135527F /* Pods-recordOrnamentsApp.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = recordOrnamentsApp/recordOrnamentsApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XS2R7967QT;
-				INFOPLIST_FILE = recordOrnamentsApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = cow.iwaski.recordOrnamentsApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -894,20 +873,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CF829EDA272A8FE3000F6DC1 /* Build configuration list for PBXNativeTarget "recordOrnamentsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF829EDB272A8FE3000F6DC1 /* Debug */,
+				CF829EDC272A8FE3000F6DC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CFB3BBAB26E2096200EB2B1A /* Build configuration list for PBXProject "recordOrnamentsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFB3BBD826E2096600EB2B1A /* Debug */,
 				CFB3BBD926E2096600EB2B1A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CFB3BBDA26E2096600EB2B1A /* Build configuration list for PBXNativeTarget "recordOrnamentsApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CFB3BBDB26E2096600EB2B1A /* Debug */,
-				CFB3BBDC26E2096600EB2B1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -941,6 +920,38 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		CF829EAC272A8FE3000F6DC1 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CF829EAE272A8FE3000F6DC1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		CF829EB0272A8FE3000F6DC1 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CF829EB2272A8FE3000F6DC1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		CF96065526FD7E2600E4D2BF /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
@@ -968,25 +979,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CF2891C62702BDAA00FEC85A /* Lottie */ = {
+		CF829EAB272A8FE3000F6DC1 /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CF2891C52702BDAA00FEC85A /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-		CF96065626FD7E2600E4D2BF /* SideMenu */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CF96065526FD7E2600E4D2BF /* XCRemoteSwiftPackageReference "SideMenu" */;
+			package = CF829EAC272A8FE3000F6DC1 /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
 		};
-		CF9C81EF2727BB3A00C8FB5E /* SDWebImage */ = {
+		CF829EAD272A8FE3000F6DC1 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CF9C81EE2727BB3A00C8FB5E /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
+			package = CF829EAE272A8FE3000F6DC1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
-		CFC22DB32723DDA60016F688 /* JGProgressHUD */ = {
+		CF829EAF272A8FE3000F6DC1 /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CFC22DB22723DDA60016F688 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			package = CF829EB0272A8FE3000F6DC1 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
+		};
+		CF829EB1272A8FE3000F6DC1 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF829EB2272A8FE3000F6DC1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
